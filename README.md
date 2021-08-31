@@ -28,13 +28,13 @@
 Install the package
 
 ```bash
-> npm install visionscan-node-client
+> npm install vision-node-client
 ```
 
 Use the HTTP Client
 
 ```javascript
-import {Client} from "visionscan-node-client";
+import {Client} from "vision-node-client";
 
 const client = new Client();
 

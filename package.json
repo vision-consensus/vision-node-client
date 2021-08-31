@@ -42,5 +42,5 @@
     "test": "mocha",
     "test:watch": "mocha --watch"
   },
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
