@@ -203,7 +203,7 @@ proto.protocol.Endpoint.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Endpoint.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -218,7 +218,7 @@ proto.protocol.Endpoint.prototype.getPort = function() {
 
 /** @param {number} value */
 proto.protocol.Endpoint.prototype.setPort = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -257,7 +257,7 @@ proto.protocol.Endpoint.prototype.getNodeid_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Endpoint.prototype.setNodeid = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -499,7 +499,7 @@ proto.protocol.PingMessage.prototype.getVersion = function() {
 
 /** @param {number} value */
 proto.protocol.PingMessage.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -514,7 +514,7 @@ proto.protocol.PingMessage.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.PingMessage.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -712,7 +712,7 @@ proto.protocol.PongMessage.prototype.getEcho = function() {
 
 /** @param {number} value */
 proto.protocol.PongMessage.prototype.setEcho = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -727,7 +727,7 @@ proto.protocol.PongMessage.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.PongMessage.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -949,7 +949,7 @@ proto.protocol.FindNeighbours.prototype.getTargetid_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.FindNeighbours.prototype.setTargetid = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -964,7 +964,7 @@ proto.protocol.FindNeighbours.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.FindNeighbours.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1203,7 +1203,7 @@ proto.protocol.Neighbours.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.Neighbours.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1359,7 +1359,7 @@ proto.protocol.BackupMessage.prototype.getFlag = function() {
 
 /** @param {boolean} value */
 proto.protocol.BackupMessage.prototype.setFlag = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1374,7 +1374,7 @@ proto.protocol.BackupMessage.prototype.getPriority = function() {
 
 /** @param {number} value */
 proto.protocol.BackupMessage.prototype.setPriority = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 

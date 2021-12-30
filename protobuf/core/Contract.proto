@@ -1,10 +1,10 @@
 /*
- * java-vision is free software: you can redistribute it and/or modify
+ * vision-core is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * java-vision is distributed in the hope that it will be useful,
+ * vision-core is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -21,7 +21,7 @@ option java_package = "org.vision.protos"; //Specify the name of the package tha
 option java_outer_classname = "Contract"; //Specify the class name of the generated Java file
 option go_package = "github.com/visionprotocol/grpc-gateway/core";
 
-import "core/vision.proto";
+import "core/Vision.proto";
 
 message AccountCreateContract {
   bytes owner_address = 1;
@@ -45,6 +45,8 @@ message TransferContract {
   bytes owner_address = 1;
   bytes to_address = 2;
   int64 amount = 3;
+  int64 type = 4;  //if type=eth validate eth sign else validate vision sign  0 or null -> vision, 1 -> eth
+  bytes rlp_data = 5; // eth's RLP rawData
 }
 
 message TransferAssetContract {
@@ -192,6 +194,8 @@ message CreateSmartContract {
   SmartContract new_contract = 2;
   int64 call_token_value = 3;
   int64 token_id = 4;
+  int64 type = 5;  //if type=eth validate eth sign else validate vision sign  0 or null -> vision, 1 -> eth
+  bytes rlp_data = 6; // eth's RLP rawData
 }
 
 message TriggerSmartContract {
@@ -201,6 +205,8 @@ message TriggerSmartContract {
   bytes data = 4;
   int64 call_token_value = 5;
   int64 token_id = 6;
+  int64 type = 7;  //if type=eth validate eth sign else validate vision sign  0 or null -> vision, 1 -> eth
+  bytes rlp_data = 8; // eth's RLP rawData
 }
 
 message BuyStorageContract {

@@ -8,6 +8,7 @@ package protocol;
 
 option java_package = "org.vision.protos"; //Specify the name of the package that generated the Java file
 option java_outer_classname = "Protocol"; //Specify the class name of the generated Java file
+option go_package = "github.com/visionprotocol/grpc-gateway/core";
 
 enum AccountType {
   Normal = 0;
@@ -27,8 +28,6 @@ message Vote {
   bytes vote_address = 1;
   // the vote num to this super rep.
   int64 vote_count = 2;
-  // the weight vote num to this super rep.
-  int64 vote_count_weight = 3;
 }
 
 // Proposal
@@ -36,7 +35,6 @@ message Proposal {
   int64 proposal_id = 1;
   bytes proposer_address = 2;
   map<int64, int64> parameters = 3;
-  map<int64, string> string_parameters = 8;
   int64 expiration_time = 4;
   int64 create_time = 5;
   repeated bytes approvals = 6;
@@ -60,73 +58,11 @@ message Exchange {
   int64 second_token_balance = 9;
 }
 
-// market
-message MarketOrder {
-    bytes order_id = 1;
-    bytes owner_address = 2;
-    int64 create_time = 3;
-    bytes sell_token_id = 4;
-    int64 sell_token_quantity = 5;
-    bytes buy_token_id = 6;
-    int64 buy_token_quantity = 7; // min to receive
-    int64 sell_token_quantity_remain = 9;
-    // When state != ACTIVE and sell_token_quantity_return !=0,
-    //it means that some sell tokens are returned to the account due to insufficient remaining amount
-    int64 sell_token_quantity_return = 10;
-
-    enum State {
-      ACTIVE = 0;
-      INACTIVE = 1;
-      CANCELED = 2;
-    }
-    State state = 11;
-
-    bytes prev = 12;
-    bytes next = 13;
-}
-
-message MarketOrderList {
-    repeated MarketOrder orders = 1;
-}
-
-message MarketOrderPairList {
-  repeated MarketOrderPair orderPair = 1;
-}
-
-message MarketOrderPair{
-    bytes sell_token_id = 1;
-    bytes buy_token_id = 2;
-}
-
-message MarketAccountOrder {
-  bytes owner_address = 1;
-  repeated bytes orders = 2; // order_id list
-  int64 count = 3; // active count
-  int64 total_count = 4;
-}
-
-message MarketPrice {
-  int64 sell_token_quantity = 1;
-  int64 buy_token_quantity = 2;
-}
-
-message MarketPriceList {
-  bytes sell_token_id = 1;
-  bytes buy_token_id = 2;
-  repeated MarketPrice prices = 3;
-}
-
-message MarketOrderIdList {
-  bytes head = 1;
-  bytes tail = 2;
-}
-
 message ChainParameters {
   repeated ChainParameter chainParameter = 1;
   message ChainParameter {
     string key = 1;
     int64 value = 2;
-    string string_value = 3;
   }
 }
 
@@ -134,7 +70,7 @@ message ChainParameters {
 message Account {
   /* frozen balance */
   message Frozen {
-    int64 frozen_balance = 1; // the frozen vs balance
+    int64 frozen_balance = 1; // the frozen trx balance
     int64 expire_time = 2; // the expire time
   }
   // account nick name
@@ -142,7 +78,7 @@ message Account {
   AccountType type = 2;
   // the create address
   bytes address = 3;
-  // the vs balance
+  // the trx balance
   int64 balance = 4;
   // the votes
   repeated Vote votes = 5;
@@ -152,14 +88,14 @@ message Account {
   // the other asset owned by this account，key is assetId
   map<string, int64> assetV2 = 56;
 
-  // the frozen balance for photon
+  // the frozen balance for bandwidth
   repeated Frozen frozen = 7;
-  // photon, get from frozen
-  int64 photon_usage = 8;
+  // bandwidth, get from frozen
+  int64 net_usage = 8;
   //Frozen balance provided by other accounts to this account
-  int64 acquired_delegated_frozen_balance_for_photon = 41;
+  int64 acquired_delegated_frozen_balance_for_bandwidth = 41;
   //Freeze and provide balances to other accounts
-  int64 delegated_frozen_balance_for_photon = 42;
+  int64 delegated_frozen_balance_for_bandwidth = 42;
 
   // this account create time
   int64 create_time = 0x09;
@@ -180,9 +116,9 @@ message Account {
   bytes asset_issued_ID = 57;
   map<string, int64> latest_asset_operation_time = 18;
   map<string, int64> latest_asset_operation_timeV2 = 58;
-  int64 free_photon_usage = 19;
-  map<string, int64> free_asset_photon_usage = 20;
-  map<string, int64> free_asset_photon_usageV2 = 59;
+  int64 free_net_usage = 19;
+  map<string, int64> free_asset_net_usage = 20;
+  map<string, int64> free_asset_net_usageV2 = 59;
   int64 latest_consume_time = 21;
   int64 latest_consume_free_time = 22;
 
@@ -190,27 +126,21 @@ message Account {
   bytes account_id = 23;
 
   message AccountResource {
-    // entropy resource, get from frozen
-    int64 entropy_usage = 1;
-    // the frozen balance for entropy
-    Frozen frozen_balance_for_entropy = 2;
-    int64 latest_consume_time_for_entropy = 3;
+    // energy resource, get from frozen
+    int64 energy_usage = 1;
+    // the frozen balance for energy
+    Frozen frozen_balance_for_energy = 2;
+    int64 latest_consume_time_for_energy = 3;
 
     //Frozen balance provided by other accounts to this account
-    int64 acquired_delegated_frozen_balance_for_entropy = 4;
+    int64 acquired_delegated_frozen_balance_for_energy = 4;
     //Frozen balances provided to other accounts
-    int64 delegated_frozen_balance_for_entropy = 5;
+    int64 delegated_frozen_balance_for_energy = 5;
 
     // storage resource, get from market
     int64 storage_limit = 6;
     int64 storage_usage = 7;
     int64 latest_exchange_storage_time = 8;
-
-    // the frozen balance for spread_mint
-    Frozen frozen_balance_for_spread = 9;
-
-    // the frozen balance for SRGuarantee
-    Frozen frozen_balance_for_srguarantee = 10;
 
   }
   AccountResource account_resource = 26;
@@ -229,18 +159,10 @@ message Key {
 message DelegatedResource {
   bytes from = 1;
   bytes to = 2;
-  int64 frozen_balance_for_photon = 3;
-  int64 frozen_balance_for_entropy = 4;
-  int64 expire_time_for_photon = 5;
-  int64 expire_time_for_entropy = 6;
-}
-
-message SpreadRelationShip {
-  bytes owner = 1;
-  bytes parent = 2;
-  int64 frozen_balance_for_spread = 3;
-  int64 expire_time_for_spread = 4;
-  int64 frozen_cycle = 5;
+  int64 frozen_balance_for_bandwidth = 3;
+  int64 frozen_balance_for_energy = 4;
+  int64 expire_time_for_bandwidth = 5;
+  int64 expire_time_for_energy = 6;
 }
 
 message authority {
@@ -255,11 +177,11 @@ message Permission {
     Active = 2;
   }
   PermissionType type = 1;
-  int32 id = 2; //Owner id=0, Witness id=1, Active id start by 2
+  int32 id = 2;     //Owner id=0, Witness id=1, Active id start by 2
   string permission_name = 3;
   int64 threshold = 4;
   int32 parent_id = 5;
-  bytes operations = 6; //1 bit 1 contract
+  bytes operations = 6;   //1 bit 1 contract
   repeated Key keys = 7;
 }
 
@@ -274,10 +196,6 @@ message Witness {
   int64 latestBlockNum = 7;
   int64 latestSlotNum = 8;
   bool isJobs = 9;
-  //the weight of vote count
-  int64 voteCountWeight = 10;
-  //the threshold of SRGuarantee
-  int64 voteCountThreshold = 11;
 }
 
 // Vote Change
@@ -309,20 +227,13 @@ message TXOutputs {
 }
 
 message ResourceReceipt {
-  int64 entropy_usage = 1;
-  int64 entropy_fee = 2;
-  int64 origin_entropy_usage = 3;
-  int64 entropy_usage_total = 4;
-  int64 photon_usage = 5;
-  int64 photon_fee = 6;
+  int64 energy_usage = 1;
+  int64 energy_fee = 2;
+  int64 origin_energy_usage = 3;
+  int64 energy_usage_total = 4;
+  int64 net_usage = 5;
+  int64 net_fee = 6;
   Transaction.Result.contractResult result = 7;
-}
-
-message MarketOrderDetail {
-  bytes makerOrderId = 1;
-  bytes takerOrderId = 2;
-  int64 fillSellQuantity = 3;
-  int64 fillBuyQuantity = 4;
 }
 
 message Transaction {
@@ -348,6 +259,9 @@ message Transaction {
       ProposalDeleteContract = 18;
       SetAccountIdContract = 19;
       CustomContract = 20;
+      // BuyStorageContract = 21;
+      // BuyStorageBytesContract = 22;
+      // SellStorageContract = 23;
       CreateSmartContract = 30;
       TriggerSmartContract = 31;
       GetContract = 32;
@@ -356,13 +270,10 @@ message Transaction {
       ExchangeInjectContract = 42;
       ExchangeWithdrawContract = 43;
       ExchangeTransactionContract = 44;
-      UpdateEntropyLimitContract = 45;
+      UpdateEnergyLimitContract = 45;
       AccountPermissionUpdateContract = 46;
       ClearABIContract = 48;
       UpdateBrokerageContract = 49;
-      ShieldedTransferContract = 51;
-      MarketSellAssetContract = 52;
-      MarketCancelOrderContract = 53;
     }
     ContractType type = 1;
     google.protobuf.Any parameter = 2;
@@ -387,7 +298,7 @@ message Transaction {
       STACK_TOO_LARGE = 7;
       ILLEGAL_OPERATION = 8;
       STACK_OVERFLOW = 9;
-      OUT_OF_ENTROPY = 10;
+      OUT_OF_ENERGY = 10;
       OUT_OF_TIME = 11;
       JVM_STACK_OVER_FLOW = 12;
       UNKNOWN = 13;
@@ -404,11 +315,6 @@ message Transaction {
     int64 exchange_inject_another_amount = 19;
     int64 exchange_withdraw_another_amount = 20;
     int64 exchange_id = 21;
-    int64 shielded_transaction_fee = 22;
-
-
-    bytes orderId = 25;
-    repeated MarketOrderDetail orderDetails = 26;
   }
 
   message raw {
@@ -462,18 +368,6 @@ message TransactionInfo {
   int64 exchange_inject_another_amount = 19;
   int64 exchange_withdraw_another_amount = 20;
   int64 exchange_id = 21;
-  int64 shielded_transaction_fee = 22;
-
-  bytes orderId = 25;
-  repeated MarketOrderDetail orderDetails = 26;
-  int64 packingFee = 27;
-
-}
-
-message TransactionRet {
-  int64 blockNumber = 1;
-  int64 blockTimeStamp = 2;
-  repeated TransactionInfo transactioninfo = 3;
 }
 
 message Transactions {
@@ -604,22 +498,67 @@ message HelloMessage {
   BlockId genesisBlockId = 4;
   BlockId solidBlockId = 5;
   BlockId headBlockId = 6;
-  bytes address = 7;
-  bytes signature = 8;
+}
+
+message SmartContract {
+  message ABI {
+    message Entry {
+      enum EntryType {
+        UnknownEntryType = 0;
+        Constructor = 1;
+        Function = 2;
+        Event = 3;
+        Fallback = 4;
+      }
+      message Param {
+        bool indexed = 1;
+        string name = 2;
+        string type = 3;
+        // SolidityType type = 3;
+      }
+      enum StateMutabilityType {
+        UnknownMutabilityType = 0;
+        Pure = 1;
+        View = 2;
+        Nonpayable = 3;
+        Payable = 4;
+      }
+
+      bool anonymous = 1;
+      bool constant = 2;
+      string name = 3;
+      repeated Param inputs = 4;
+      repeated Param outputs = 5;
+      EntryType type = 6;
+      bool payable = 7;
+      StateMutabilityType stateMutability = 8;
+    }
+    repeated Entry entrys = 1;
+  }
+  bytes origin_address = 1;
+  bytes contract_address = 2;
+  ABI abi = 3;
+  bytes bytecode = 4;
+  int64 call_value = 5;
+  int64 consume_user_resource_percent = 6;
+  string name = 7;
+  int64 origin_energy_limit = 8;
+  bytes code_hash = 9;
+  bytes trx_hash = 10;
 }
 
 message InternalTransaction {
   // internalTransaction identity, the root InternalTransaction hash
   // should equals to root transaction id.
   bytes hash = 1;
-  // the one send vs (TBD: or token) via function
+  // the one send trx (TBD: or token) via function
   bytes caller_address = 2;
-  // the one recieve vs (TBD: or token) via function
+  // the one recieve trx (TBD: or token) via function
   bytes transferTo_address = 3;
   message CallValueInfo {
-    // vs (TBD: or token) value
+    // trx (TBD: or token) value
     int64 callValue = 1;
-    // TBD: tokenName, vs should be empty
+    // TBD: tokenName, trx should be empty
     string tokenId = 2;
   }
   repeated CallValueInfo callValueInfo = 4;
@@ -694,7 +633,7 @@ message NodeInfo {
     double minTimeRatio = 16;
     double maxTimeRatio = 17;
     int64 allowCreationOfContracts = 18;
-    int64 allowAdaptiveEntropy = 19;
+    int64 allowAdaptiveEnergy = 19;
   }
 
   message MachineInfo {
@@ -706,7 +645,7 @@ message NodeInfo {
     double cpuRate = 6;
     string javaVersion = 7;
     string osName = 8;
-    int64 jvmTotalMemory = 9;
+    int64 jvmTotalMemoery = 9;
     int64 jvmFreeMemory = 10;
     double processCpuRate = 11;
     repeated MemoryDescInfo memoryDescInfoList = 12;
@@ -730,140 +669,4 @@ message NodeInfo {
       string stackTrace = 7;
     }
   }
-}
-
-message MetricsInfo {
-  int64 interval = 1;
-  NodeInfo node = 2;
-  BlockChainInfo blockchain = 3;
-  NetInfo net = 4;
-
-  message NodeInfo {
-    string ip = 1;
-    int32 nodeType = 2;
-    string version = 3;
-    int32 backupStatus = 4;
-  }
-
-  message BlockChainInfo {
-    int64 headBlockNum = 1;
-    int64 headBlockTimestamp = 2;
-    string headBlockHash = 3;
-    int32 forkCount = 4;
-    int32 failForkCount = 5;
-    RateInfo blockProcessTime = 6;
-    RateInfo tps = 7;
-    int32 transactionCacheSize = 8;
-    RateInfo missedTransaction = 9;
-    repeated Witness witnesses = 10;
-    int64 failProcessBlockNum = 11;
-    string failProcessBlockReason = 12;
-    repeated DupWitness dupWitness = 13;
-
-    message Witness {
-      string address = 1;
-      int32 version = 2;
-    }
-
-    message DupWitness {
-      string address = 1;
-      int64 blockNum = 2;
-      int32 count = 3;
-    }
-  }
-
-  message RateInfo {
-    int64 count = 1;
-    double meanRate = 2;
-    double oneMinuteRate = 3;
-    double fiveMinuteRate = 4;
-    double fifteenMinuteRate = 5;
-  }
-
-  message NetInfo {
-    int32 errorProtoCount = 1;
-    ApiInfo api = 2;
-    int32 connectionCount = 3;
-    int32 validConnectionCount = 4;
-    RateInfo tcpInTraffic = 5;
-    RateInfo tcpOutTraffic = 6;
-    int32 disconnectionCount = 7;
-    repeated DisconnectionDetailInfo disconnectionDetail = 8;
-    RateInfo udpInTraffic = 9;
-    RateInfo udpOutTraffic = 10;
-    LatencyInfo latency = 11;
-
-    message ApiInfo {
-      RateInfo qps = 1;
-      RateInfo failQps = 2;
-      RateInfo outTraffic = 3;
-      repeated ApiDetailInfo detail = 4;
-
-      message ApiDetailInfo {
-        string name = 1;
-        RateInfo qps = 2;
-        RateInfo failQps = 3;
-        RateInfo outTraffic = 4;
-      }
-    }
-
-    message DisconnectionDetailInfo {
-      string reason = 1;
-      int32 count = 2;
-    }
-
-    message LatencyInfo {
-      int32 top99 = 1;
-      int32 top95 = 2;
-      int32 top75 = 3;
-      int32 totalCount = 4;
-      int32 delay1S = 5;
-      int32 delay2S = 6;
-      int32 delay3S = 7;
-      repeated LatencyDetailInfo detail = 8;
-
-      message LatencyDetailInfo {
-        string witness = 1;
-        int32 top99 = 2;
-        int32 top95 = 3;
-        int32 top75 = 4;
-        int32 count = 5;
-        int32 delay1S = 6;
-        int32 delay2S = 7;
-        int32 delay3S = 8;
-      }
-    }
-  }
-}
-
-message PBFTMessage {
-  enum MsgType {
-    VIEW_CHANGE = 0;
-    REQUEST = 1;
-    PREPREPARE = 2;
-    PREPARE = 3;
-    COMMIT = 4;
-  }
-  enum DataType {
-    BLOCK = 0;
-    SRL = 1;
-  }
-  message Raw {
-    MsgType msg_type = 1;
-    DataType data_type = 2;
-    int64 view_n = 3;
-    int64 epoch = 4;
-    bytes data = 5;
-  }
-  Raw raw_data = 1;
-  bytes signature = 2;
-}
-
-message PBFTCommitResult {
-  bytes data = 1;
-  repeated bytes signature = 2;
-}
-
-message SRL {
-  repeated bytes srAddress = 1;
 }

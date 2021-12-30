@@ -254,7 +254,7 @@ proto.protocol.AccountId.prototype.getName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountId.prototype.setName = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -293,7 +293,7 @@ proto.protocol.AccountId.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountId.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -471,7 +471,7 @@ proto.protocol.Vote.prototype.getVoteAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Vote.prototype.setVoteAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -486,7 +486,7 @@ proto.protocol.Vote.prototype.getVoteCount = function() {
 
 /** @param {number} value */
 proto.protocol.Vote.prototype.setVoteCount = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -716,7 +716,7 @@ proto.protocol.Proposal.prototype.getProposalId = function() {
 
 /** @param {number} value */
 proto.protocol.Proposal.prototype.setProposalId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -755,7 +755,7 @@ proto.protocol.Proposal.prototype.getProposerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Proposal.prototype.setProposerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -788,7 +788,7 @@ proto.protocol.Proposal.prototype.getExpirationTime = function() {
 
 /** @param {number} value */
 proto.protocol.Proposal.prototype.setExpirationTime = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -803,7 +803,7 @@ proto.protocol.Proposal.prototype.getCreateTime = function() {
 
 /** @param {number} value */
 proto.protocol.Proposal.prototype.setCreateTime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -871,7 +871,7 @@ proto.protocol.Proposal.prototype.getState = function() {
 
 /** @param {!proto.protocol.Proposal.State} value */
 proto.protocol.Proposal.prototype.setState = function(value) {
-  jspb.Message.setProto3EnumField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -1085,7 +1085,7 @@ proto.protocol.Exchange.prototype.getExchangeId = function() {
 
 /** @param {number} value */
 proto.protocol.Exchange.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1124,7 +1124,7 @@ proto.protocol.Exchange.prototype.getCreatorAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Exchange.prototype.setCreatorAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -1139,7 +1139,7 @@ proto.protocol.Exchange.prototype.getCreateTime = function() {
 
 /** @param {number} value */
 proto.protocol.Exchange.prototype.setCreateTime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1178,7 +1178,7 @@ proto.protocol.Exchange.prototype.getFirstTokenId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Exchange.prototype.setFirstTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -1193,7 +1193,7 @@ proto.protocol.Exchange.prototype.getFirstTokenBalance = function() {
 
 /** @param {number} value */
 proto.protocol.Exchange.prototype.setFirstTokenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -1232,7 +1232,7 @@ proto.protocol.Exchange.prototype.getSecondTokenId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Exchange.prototype.setSecondTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -1247,7 +1247,7 @@ proto.protocol.Exchange.prototype.getSecondTokenBalance = function() {
 
 /** @param {number} value */
 proto.protocol.Exchange.prototype.setSecondTokenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -1538,7 +1538,7 @@ proto.protocol.ChainParameters.ChainParameter.prototype.getKey = function() {
 
 /** @param {string} value */
 proto.protocol.ChainParameters.ChainParameter.prototype.setKey = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1553,7 +1553,7 @@ proto.protocol.ChainParameters.ChainParameter.prototype.getValue = function() {
 
 /** @param {number} value */
 proto.protocol.ChainParameters.ChainParameter.prototype.setValue = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2280,7 +2280,7 @@ proto.protocol.Account.Frozen.prototype.getFrozenBalance = function() {
 
 /** @param {number} value */
 proto.protocol.Account.Frozen.prototype.setFrozenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2295,7 +2295,7 @@ proto.protocol.Account.Frozen.prototype.getExpireTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.Frozen.prototype.setExpireTime = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2523,7 +2523,7 @@ proto.protocol.Account.AccountResource.prototype.getEnergyUsage = function() {
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setEnergyUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2568,7 +2568,7 @@ proto.protocol.Account.AccountResource.prototype.getLatestConsumeTimeForEnergy =
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setLatestConsumeTimeForEnergy = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -2583,7 +2583,7 @@ proto.protocol.Account.AccountResource.prototype.getAcquiredDelegatedFrozenBalan
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setAcquiredDelegatedFrozenBalanceForEnergy = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -2598,7 +2598,7 @@ proto.protocol.Account.AccountResource.prototype.getDelegatedFrozenBalanceForEne
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setDelegatedFrozenBalanceForEnergy = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -2613,7 +2613,7 @@ proto.protocol.Account.AccountResource.prototype.getStorageLimit = function() {
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setStorageLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -2628,7 +2628,7 @@ proto.protocol.Account.AccountResource.prototype.getStorageUsage = function() {
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setStorageUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -2643,7 +2643,7 @@ proto.protocol.Account.AccountResource.prototype.getLatestExchangeStorageTime = 
 
 /** @param {number} value */
 proto.protocol.Account.AccountResource.prototype.setLatestExchangeStorageTime = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -2682,7 +2682,7 @@ proto.protocol.Account.prototype.getAccountName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setAccountName = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2697,7 +2697,7 @@ proto.protocol.Account.prototype.getType = function() {
 
 /** @param {!proto.protocol.AccountType} value */
 proto.protocol.Account.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2736,7 +2736,7 @@ proto.protocol.Account.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -2751,7 +2751,7 @@ proto.protocol.Account.prototype.getBalance = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -2864,7 +2864,7 @@ proto.protocol.Account.prototype.getNetUsage = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setNetUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -2879,7 +2879,7 @@ proto.protocol.Account.prototype.getAcquiredDelegatedFrozenBalanceForBandwidth =
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setAcquiredDelegatedFrozenBalanceForBandwidth = function(value) {
-  jspb.Message.setProto3IntField(this, 41, value);
+  jspb.Message.setField(this, 41, value);
 };
 
 
@@ -2894,7 +2894,7 @@ proto.protocol.Account.prototype.getDelegatedFrozenBalanceForBandwidth = functio
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setDelegatedFrozenBalanceForBandwidth = function(value) {
-  jspb.Message.setProto3IntField(this, 42, value);
+  jspb.Message.setField(this, 42, value);
 };
 
 
@@ -2909,7 +2909,7 @@ proto.protocol.Account.prototype.getCreateTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setCreateTime = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -2924,7 +2924,7 @@ proto.protocol.Account.prototype.getLatestOprationTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setLatestOprationTime = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -2939,7 +2939,7 @@ proto.protocol.Account.prototype.getAllowance = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setAllowance = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -2954,7 +2954,7 @@ proto.protocol.Account.prototype.getLatestWithdrawTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setLatestWithdrawTime = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -2993,7 +2993,7 @@ proto.protocol.Account.prototype.getCode_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setCode = function(value) {
-  jspb.Message.setProto3BytesField(this, 13, value);
+  jspb.Message.setField(this, 13, value);
 };
 
 
@@ -3010,7 +3010,7 @@ proto.protocol.Account.prototype.getIsWitness = function() {
 
 /** @param {boolean} value */
 proto.protocol.Account.prototype.setIsWitness = function(value) {
-  jspb.Message.setProto3BooleanField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -3027,7 +3027,7 @@ proto.protocol.Account.prototype.getIsCommittee = function() {
 
 /** @param {boolean} value */
 proto.protocol.Account.prototype.setIsCommittee = function(value) {
-  jspb.Message.setProto3BooleanField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -3097,7 +3097,7 @@ proto.protocol.Account.prototype.getAssetIssuedName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setAssetIssuedName = function(value) {
-  jspb.Message.setProto3BytesField(this, 17, value);
+  jspb.Message.setField(this, 17, value);
 };
 
 
@@ -3136,7 +3136,7 @@ proto.protocol.Account.prototype.getAssetIssuedId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setAssetIssuedId = function(value) {
-  jspb.Message.setProto3BytesField(this, 57, value);
+  jspb.Message.setField(this, 57, value);
 };
 
 
@@ -3187,7 +3187,7 @@ proto.protocol.Account.prototype.getFreeNetUsage = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setFreeNetUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -3238,7 +3238,7 @@ proto.protocol.Account.prototype.getLatestConsumeTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setLatestConsumeTime = function(value) {
-  jspb.Message.setProto3IntField(this, 21, value);
+  jspb.Message.setField(this, 21, value);
 };
 
 
@@ -3253,7 +3253,7 @@ proto.protocol.Account.prototype.getLatestConsumeFreeTime = function() {
 
 /** @param {number} value */
 proto.protocol.Account.prototype.setLatestConsumeFreeTime = function(value) {
-  jspb.Message.setProto3IntField(this, 22, value);
+  jspb.Message.setField(this, 22, value);
 };
 
 
@@ -3292,7 +3292,7 @@ proto.protocol.Account.prototype.getAccountId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setAccountId = function(value) {
-  jspb.Message.setProto3BytesField(this, 23, value);
+  jspb.Message.setField(this, 23, value);
 };
 
 
@@ -3361,7 +3361,7 @@ proto.protocol.Account.prototype.getCodehash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Account.prototype.setCodehash = function(value) {
-  jspb.Message.setProto3BytesField(this, 30, value);
+  jspb.Message.setField(this, 30, value);
 };
 
 
@@ -3630,7 +3630,7 @@ proto.protocol.Key.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Key.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3645,7 +3645,7 @@ proto.protocol.Key.prototype.getWeight = function() {
 
 /** @param {number} value */
 proto.protocol.Key.prototype.setWeight = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -3871,7 +3871,7 @@ proto.protocol.DelegatedResource.prototype.getFrom_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.DelegatedResource.prototype.setFrom = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3910,7 +3910,7 @@ proto.protocol.DelegatedResource.prototype.getTo_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.DelegatedResource.prototype.setTo = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -3925,7 +3925,7 @@ proto.protocol.DelegatedResource.prototype.getFrozenBalanceForBandwidth = functi
 
 /** @param {number} value */
 proto.protocol.DelegatedResource.prototype.setFrozenBalanceForBandwidth = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -3940,7 +3940,7 @@ proto.protocol.DelegatedResource.prototype.getFrozenBalanceForEnergy = function(
 
 /** @param {number} value */
 proto.protocol.DelegatedResource.prototype.setFrozenBalanceForEnergy = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -3955,7 +3955,7 @@ proto.protocol.DelegatedResource.prototype.getExpireTimeForBandwidth = function(
 
 /** @param {number} value */
 proto.protocol.DelegatedResource.prototype.setExpireTimeForBandwidth = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -3970,7 +3970,7 @@ proto.protocol.DelegatedResource.prototype.getExpireTimeForEnergy = function() {
 
 /** @param {number} value */
 proto.protocol.DelegatedResource.prototype.setExpireTimeForEnergy = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -4180,7 +4180,7 @@ proto.protocol.authority.prototype.getPermissionName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.authority.prototype.setPermissionName = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -4413,7 +4413,7 @@ proto.protocol.Permission.prototype.getType = function() {
 
 /** @param {!proto.protocol.Permission.PermissionType} value */
 proto.protocol.Permission.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -4428,7 +4428,7 @@ proto.protocol.Permission.prototype.getId = function() {
 
 /** @param {number} value */
 proto.protocol.Permission.prototype.setId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -4443,7 +4443,7 @@ proto.protocol.Permission.prototype.getPermissionName = function() {
 
 /** @param {string} value */
 proto.protocol.Permission.prototype.setPermissionName = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -4458,7 +4458,7 @@ proto.protocol.Permission.prototype.getThreshold = function() {
 
 /** @param {number} value */
 proto.protocol.Permission.prototype.setThreshold = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -4473,7 +4473,7 @@ proto.protocol.Permission.prototype.getParentId = function() {
 
 /** @param {number} value */
 proto.protocol.Permission.prototype.setParentId = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -4512,7 +4512,7 @@ proto.protocol.Permission.prototype.getOperations_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Permission.prototype.setOperations = function(value) {
-  jspb.Message.setProto3BytesField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -4805,7 +4805,7 @@ proto.protocol.Witness.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Witness.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -4820,7 +4820,7 @@ proto.protocol.Witness.prototype.getVotecount = function() {
 
 /** @param {number} value */
 proto.protocol.Witness.prototype.setVotecount = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -4859,7 +4859,7 @@ proto.protocol.Witness.prototype.getPubkey_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Witness.prototype.setPubkey = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -4874,7 +4874,7 @@ proto.protocol.Witness.prototype.getUrl = function() {
 
 /** @param {string} value */
 proto.protocol.Witness.prototype.setUrl = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -4889,7 +4889,7 @@ proto.protocol.Witness.prototype.getTotalproduced = function() {
 
 /** @param {number} value */
 proto.protocol.Witness.prototype.setTotalproduced = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -4904,7 +4904,7 @@ proto.protocol.Witness.prototype.getTotalmissed = function() {
 
 /** @param {number} value */
 proto.protocol.Witness.prototype.setTotalmissed = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -4919,7 +4919,7 @@ proto.protocol.Witness.prototype.getLatestblocknum = function() {
 
 /** @param {number} value */
 proto.protocol.Witness.prototype.setLatestblocknum = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -4934,7 +4934,7 @@ proto.protocol.Witness.prototype.getLatestslotnum = function() {
 
 /** @param {number} value */
 proto.protocol.Witness.prototype.setLatestslotnum = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -4951,7 +4951,7 @@ proto.protocol.Witness.prototype.getIsjobs = function() {
 
 /** @param {boolean} value */
 proto.protocol.Witness.prototype.setIsjobs = function(value) {
-  jspb.Message.setProto3BooleanField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -5154,7 +5154,7 @@ proto.protocol.Votes.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Votes.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5370,7 +5370,7 @@ proto.protocol.TXOutput.prototype.getValue = function() {
 
 /** @param {number} value */
 proto.protocol.TXOutput.prototype.setValue = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5409,7 +5409,7 @@ proto.protocol.TXOutput.prototype.getPubkeyhash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TXOutput.prototype.setPubkeyhash = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -5740,7 +5740,7 @@ proto.protocol.TXInput.raw.prototype.getTxid_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TXInput.raw.prototype.setTxid = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5755,7 +5755,7 @@ proto.protocol.TXInput.raw.prototype.getVout = function() {
 
 /** @param {number} value */
 proto.protocol.TXInput.raw.prototype.setVout = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -5794,7 +5794,7 @@ proto.protocol.TXInput.raw.prototype.getPubkey_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TXInput.raw.prototype.setPubkey = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -5863,7 +5863,7 @@ proto.protocol.TXInput.prototype.getSignature_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TXInput.prototype.setSignature = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -6245,7 +6245,7 @@ proto.protocol.ResourceReceipt.prototype.getEnergyUsage = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setEnergyUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6260,7 +6260,7 @@ proto.protocol.ResourceReceipt.prototype.getEnergyFee = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setEnergyFee = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -6275,7 +6275,7 @@ proto.protocol.ResourceReceipt.prototype.getOriginEnergyUsage = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setOriginEnergyUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6290,7 +6290,7 @@ proto.protocol.ResourceReceipt.prototype.getEnergyUsageTotal = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setEnergyUsageTotal = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -6305,7 +6305,7 @@ proto.protocol.ResourceReceipt.prototype.getNetUsage = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setNetUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -6320,7 +6320,7 @@ proto.protocol.ResourceReceipt.prototype.getNetFee = function() {
 
 /** @param {number} value */
 proto.protocol.ResourceReceipt.prototype.setNetFee = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -6335,7 +6335,7 @@ proto.protocol.ResourceReceipt.prototype.getResult = function() {
 
 /** @param {!proto.protocol.Transaction.Result.contractResult} value */
 proto.protocol.ResourceReceipt.prototype.setResult = function(value) {
-  jspb.Message.setProto3EnumField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -6728,7 +6728,7 @@ proto.protocol.Transaction.Contract.prototype.getType = function() {
 
 /** @param {!proto.protocol.Transaction.Contract.ContractType} value */
 proto.protocol.Transaction.Contract.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6797,7 +6797,7 @@ proto.protocol.Transaction.Contract.prototype.getProvider_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.Contract.prototype.setProvider = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6836,7 +6836,7 @@ proto.protocol.Transaction.Contract.prototype.getContractname_asU8 = function() 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.Contract.prototype.setContractname = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -6851,7 +6851,7 @@ proto.protocol.Transaction.Contract.prototype.getPermissionId = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.Contract.prototype.setPermissionId = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -7130,7 +7130,7 @@ proto.protocol.Transaction.Result.prototype.getFee = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setFee = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7145,7 +7145,7 @@ proto.protocol.Transaction.Result.prototype.getRet = function() {
 
 /** @param {!proto.protocol.Transaction.Result.code} value */
 proto.protocol.Transaction.Result.prototype.setRet = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7160,7 +7160,7 @@ proto.protocol.Transaction.Result.prototype.getContractret = function() {
 
 /** @param {!proto.protocol.Transaction.Result.contractResult} value */
 proto.protocol.Transaction.Result.prototype.setContractret = function(value) {
-  jspb.Message.setProto3EnumField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -7175,7 +7175,7 @@ proto.protocol.Transaction.Result.prototype.getAssetissueid = function() {
 
 /** @param {string} value */
 proto.protocol.Transaction.Result.prototype.setAssetissueid = function(value) {
-  jspb.Message.setProto3StringField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -7190,7 +7190,7 @@ proto.protocol.Transaction.Result.prototype.getWithdrawAmount = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setWithdrawAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -7205,7 +7205,7 @@ proto.protocol.Transaction.Result.prototype.getUnfreezeAmount = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setUnfreezeAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  jspb.Message.setField(this, 16, value);
 };
 
 
@@ -7220,7 +7220,7 @@ proto.protocol.Transaction.Result.prototype.getExchangeReceivedAmount = function
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setExchangeReceivedAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+  jspb.Message.setField(this, 18, value);
 };
 
 
@@ -7235,7 +7235,7 @@ proto.protocol.Transaction.Result.prototype.getExchangeInjectAnotherAmount = fun
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setExchangeInjectAnotherAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -7250,7 +7250,7 @@ proto.protocol.Transaction.Result.prototype.getExchangeWithdrawAnotherAmount = f
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setExchangeWithdrawAnotherAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  jspb.Message.setField(this, 20, value);
 };
 
 
@@ -7265,7 +7265,7 @@ proto.protocol.Transaction.Result.prototype.getExchangeId = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.Result.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 21, value);
+  jspb.Message.setField(this, 21, value);
 };
 
 
@@ -7552,7 +7552,7 @@ proto.protocol.Transaction.raw.prototype.getRefBlockBytes_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.raw.prototype.setRefBlockBytes = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7567,7 +7567,7 @@ proto.protocol.Transaction.raw.prototype.getRefBlockNum = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.raw.prototype.setRefBlockNum = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -7606,7 +7606,7 @@ proto.protocol.Transaction.raw.prototype.getRefBlockHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.raw.prototype.setRefBlockHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -7621,7 +7621,7 @@ proto.protocol.Transaction.raw.prototype.getExpiration = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.raw.prototype.setExpiration = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -7691,7 +7691,7 @@ proto.protocol.Transaction.raw.prototype.getData_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.raw.prototype.setData = function(value) {
-  jspb.Message.setProto3BytesField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -7761,7 +7761,7 @@ proto.protocol.Transaction.raw.prototype.getScripts_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.Transaction.raw.prototype.setScripts = function(value) {
-  jspb.Message.setProto3BytesField(this, 12, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -7776,7 +7776,7 @@ proto.protocol.Transaction.raw.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.raw.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -7791,7 +7791,7 @@ proto.protocol.Transaction.raw.prototype.getFeeLimit = function() {
 
 /** @param {number} value */
 proto.protocol.Transaction.raw.prototype.setFeeLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+  jspb.Message.setField(this, 18, value);
 };
 
 
@@ -8456,7 +8456,7 @@ proto.protocol.TransactionInfo.Log.prototype.getAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionInfo.Log.prototype.setAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -8548,7 +8548,7 @@ proto.protocol.TransactionInfo.Log.prototype.getData_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionInfo.Log.prototype.setData = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -8587,7 +8587,7 @@ proto.protocol.TransactionInfo.prototype.getId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionInfo.prototype.setId = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -8602,7 +8602,7 @@ proto.protocol.TransactionInfo.prototype.getFee = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setFee = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -8617,7 +8617,7 @@ proto.protocol.TransactionInfo.prototype.getBlocknumber = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setBlocknumber = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -8632,7 +8632,7 @@ proto.protocol.TransactionInfo.prototype.getBlocktimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setBlocktimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -8724,7 +8724,7 @@ proto.protocol.TransactionInfo.prototype.getContractAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionInfo.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -8800,7 +8800,7 @@ proto.protocol.TransactionInfo.prototype.getResult = function() {
 
 /** @param {!proto.protocol.TransactionInfo.code} value */
 proto.protocol.TransactionInfo.prototype.setResult = function(value) {
-  jspb.Message.setProto3EnumField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -8839,7 +8839,7 @@ proto.protocol.TransactionInfo.prototype.getResmessage_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionInfo.prototype.setResmessage = function(value) {
-  jspb.Message.setProto3BytesField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -8854,7 +8854,7 @@ proto.protocol.TransactionInfo.prototype.getAssetissueid = function() {
 
 /** @param {string} value */
 proto.protocol.TransactionInfo.prototype.setAssetissueid = function(value) {
-  jspb.Message.setProto3StringField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -8869,7 +8869,7 @@ proto.protocol.TransactionInfo.prototype.getWithdrawAmount = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setWithdrawAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -8884,7 +8884,7 @@ proto.protocol.TransactionInfo.prototype.getUnfreezeAmount = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setUnfreezeAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  jspb.Message.setField(this, 16, value);
 };
 
 
@@ -8930,7 +8930,7 @@ proto.protocol.TransactionInfo.prototype.getExchangeReceivedAmount = function() 
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setExchangeReceivedAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+  jspb.Message.setField(this, 18, value);
 };
 
 
@@ -8945,7 +8945,7 @@ proto.protocol.TransactionInfo.prototype.getExchangeInjectAnotherAmount = functi
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setExchangeInjectAnotherAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -8960,7 +8960,7 @@ proto.protocol.TransactionInfo.prototype.getExchangeWithdrawAnotherAmount = func
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setExchangeWithdrawAnotherAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  jspb.Message.setField(this, 20, value);
 };
 
 
@@ -8975,7 +8975,7 @@ proto.protocol.TransactionInfo.prototype.getExchangeId = function() {
 
 /** @param {number} value */
 proto.protocol.TransactionInfo.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 21, value);
+  jspb.Message.setField(this, 21, value);
 };
 
 
@@ -9353,7 +9353,7 @@ proto.protocol.TransactionSign.prototype.getPrivatekey_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransactionSign.prototype.setPrivatekey = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -9720,7 +9720,7 @@ proto.protocol.BlockHeader.raw.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.BlockHeader.raw.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -9759,7 +9759,7 @@ proto.protocol.BlockHeader.raw.prototype.getTxtrieroot_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockHeader.raw.prototype.setTxtrieroot = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -9798,7 +9798,7 @@ proto.protocol.BlockHeader.raw.prototype.getParenthash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockHeader.raw.prototype.setParenthash = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -9813,7 +9813,7 @@ proto.protocol.BlockHeader.raw.prototype.getNumber = function() {
 
 /** @param {number} value */
 proto.protocol.BlockHeader.raw.prototype.setNumber = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -9828,7 +9828,7 @@ proto.protocol.BlockHeader.raw.prototype.getWitnessId = function() {
 
 /** @param {number} value */
 proto.protocol.BlockHeader.raw.prototype.setWitnessId = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -9867,7 +9867,7 @@ proto.protocol.BlockHeader.raw.prototype.getWitnessAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockHeader.raw.prototype.setWitnessAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -9882,7 +9882,7 @@ proto.protocol.BlockHeader.raw.prototype.getVersion = function() {
 
 /** @param {number} value */
 proto.protocol.BlockHeader.raw.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -9921,7 +9921,7 @@ proto.protocol.BlockHeader.raw.prototype.getAccountstateroot_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockHeader.raw.prototype.setAccountstateroot = function(value) {
-  jspb.Message.setProto3BytesField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -9990,7 +9990,7 @@ proto.protocol.BlockHeader.prototype.getWitnessSignature_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockHeader.prototype.setWitnessSignature = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -10529,7 +10529,7 @@ proto.protocol.ChainInventory.BlockId.prototype.getHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ChainInventory.BlockId.prototype.setHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -10544,7 +10544,7 @@ proto.protocol.ChainInventory.BlockId.prototype.getNumber = function() {
 
 /** @param {number} value */
 proto.protocol.ChainInventory.BlockId.prototype.setNumber = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -10590,7 +10590,7 @@ proto.protocol.ChainInventory.prototype.getRemainNum = function() {
 
 /** @param {number} value */
 proto.protocol.ChainInventory.prototype.setRemainNum = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -10926,7 +10926,7 @@ proto.protocol.BlockInventory.BlockId.prototype.getHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BlockInventory.BlockId.prototype.setHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -10941,7 +10941,7 @@ proto.protocol.BlockInventory.BlockId.prototype.getNumber = function() {
 
 /** @param {number} value */
 proto.protocol.BlockInventory.BlockId.prototype.setNumber = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -10987,7 +10987,7 @@ proto.protocol.BlockInventory.prototype.getType = function() {
 
 /** @param {!proto.protocol.BlockInventory.Type} value */
 proto.protocol.BlockInventory.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -11156,7 +11156,7 @@ proto.protocol.Inventory.prototype.getType = function() {
 
 /** @param {!proto.protocol.Inventory.InventoryType} value */
 proto.protocol.Inventory.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -11413,7 +11413,7 @@ proto.protocol.Items.prototype.getType = function() {
 
 /** @param {!proto.protocol.Items.ItemType} value */
 proto.protocol.Items.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -11648,7 +11648,7 @@ proto.protocol.DynamicProperties.prototype.getLastSolidityBlockNum = function() 
 
 /** @param {number} value */
 proto.protocol.DynamicProperties.prototype.setLastSolidityBlockNum = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -11790,7 +11790,7 @@ proto.protocol.DisconnectMessage.prototype.getReason = function() {
 
 /** @param {!proto.protocol.ReasonCode} value */
 proto.protocol.DisconnectMessage.prototype.setReason = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -12163,7 +12163,7 @@ proto.protocol.HelloMessage.BlockId.prototype.getHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.HelloMessage.BlockId.prototype.setHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -12178,7 +12178,7 @@ proto.protocol.HelloMessage.BlockId.prototype.getNumber = function() {
 
 /** @param {number} value */
 proto.protocol.HelloMessage.BlockId.prototype.setNumber = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -12223,7 +12223,7 @@ proto.protocol.HelloMessage.prototype.getVersion = function() {
 
 /** @param {number} value */
 proto.protocol.HelloMessage.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -12238,7 +12238,7 @@ proto.protocol.HelloMessage.prototype.getTimestamp = function() {
 
 /** @param {number} value */
 proto.protocol.HelloMessage.prototype.setTimestamp = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -13116,7 +13116,7 @@ proto.protocol.SmartContract.ABI.Entry.Param.prototype.getIndexed = function() {
 
 /** @param {boolean} value */
 proto.protocol.SmartContract.ABI.Entry.Param.prototype.setIndexed = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -13131,7 +13131,7 @@ proto.protocol.SmartContract.ABI.Entry.Param.prototype.getName = function() {
 
 /** @param {string} value */
 proto.protocol.SmartContract.ABI.Entry.Param.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -13146,7 +13146,7 @@ proto.protocol.SmartContract.ABI.Entry.Param.prototype.getType = function() {
 
 /** @param {string} value */
 proto.protocol.SmartContract.ABI.Entry.Param.prototype.setType = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -13163,7 +13163,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getAnonymous = function() {
 
 /** @param {boolean} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setAnonymous = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -13180,7 +13180,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getConstant = function() {
 
 /** @param {boolean} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setConstant = function(value) {
-  jspb.Message.setProto3BooleanField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -13195,7 +13195,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getName = function() {
 
 /** @param {string} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -13272,7 +13272,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getType = function() {
 
 /** @param {!proto.protocol.SmartContract.ABI.Entry.EntryType} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -13289,7 +13289,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getPayable = function() {
 
 /** @param {boolean} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setPayable = function(value) {
-  jspb.Message.setProto3BooleanField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -13304,7 +13304,7 @@ proto.protocol.SmartContract.ABI.Entry.prototype.getStatemutability = function()
 
 /** @param {!proto.protocol.SmartContract.ABI.Entry.StateMutabilityType} value */
 proto.protocol.SmartContract.ABI.Entry.prototype.setStatemutability = function(value) {
-  jspb.Message.setProto3EnumField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -13374,7 +13374,7 @@ proto.protocol.SmartContract.prototype.getOriginAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SmartContract.prototype.setOriginAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -13413,7 +13413,7 @@ proto.protocol.SmartContract.prototype.getContractAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SmartContract.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -13482,7 +13482,7 @@ proto.protocol.SmartContract.prototype.getBytecode_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SmartContract.prototype.setBytecode = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -13497,7 +13497,7 @@ proto.protocol.SmartContract.prototype.getCallValue = function() {
 
 /** @param {number} value */
 proto.protocol.SmartContract.prototype.setCallValue = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -13512,7 +13512,7 @@ proto.protocol.SmartContract.prototype.getConsumeUserResourcePercent = function(
 
 /** @param {number} value */
 proto.protocol.SmartContract.prototype.setConsumeUserResourcePercent = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -13527,7 +13527,7 @@ proto.protocol.SmartContract.prototype.getName = function() {
 
 /** @param {string} value */
 proto.protocol.SmartContract.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -13542,7 +13542,7 @@ proto.protocol.SmartContract.prototype.getOriginEnergyLimit = function() {
 
 /** @param {number} value */
 proto.protocol.SmartContract.prototype.setOriginEnergyLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -13581,7 +13581,7 @@ proto.protocol.SmartContract.prototype.getCodeHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SmartContract.prototype.setCodeHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -13620,7 +13620,7 @@ proto.protocol.SmartContract.prototype.getTrxHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SmartContract.prototype.setTrxHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -13971,7 +13971,7 @@ proto.protocol.InternalTransaction.CallValueInfo.prototype.getCallvalue = functi
 
 /** @param {number} value */
 proto.protocol.InternalTransaction.CallValueInfo.prototype.setCallvalue = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -13986,7 +13986,7 @@ proto.protocol.InternalTransaction.CallValueInfo.prototype.getTokenid = function
 
 /** @param {string} value */
 proto.protocol.InternalTransaction.CallValueInfo.prototype.setTokenid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -14025,7 +14025,7 @@ proto.protocol.InternalTransaction.prototype.getHash_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.InternalTransaction.prototype.setHash = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -14064,7 +14064,7 @@ proto.protocol.InternalTransaction.prototype.getCallerAddress_asU8 = function() 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.InternalTransaction.prototype.setCallerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -14103,7 +14103,7 @@ proto.protocol.InternalTransaction.prototype.getTransfertoAddress_asU8 = functio
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.InternalTransaction.prototype.setTransfertoAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -14173,7 +14173,7 @@ proto.protocol.InternalTransaction.prototype.getNote_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.InternalTransaction.prototype.setNote = function(value) {
-  jspb.Message.setProto3BytesField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -14190,7 +14190,7 @@ proto.protocol.InternalTransaction.prototype.getRejected = function() {
 
 /** @param {boolean} value */
 proto.protocol.InternalTransaction.prototype.setRejected = function(value) {
-  jspb.Message.setProto3BooleanField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -14387,7 +14387,7 @@ proto.protocol.DelegatedResourceAccountIndex.prototype.getAccount_asU8 = functio
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.DelegatedResourceAccountIndex.prototype.setAccount = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -15183,7 +15183,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getLastsyncblock = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setLastsyncblock = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -15198,7 +15198,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getRemainnum = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setRemainnum = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -15213,7 +15213,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getLastblockupdatetime = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setLastblockupdatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -15230,7 +15230,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getSyncflag = function() {
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setSyncflag = function(value) {
-  jspb.Message.setProto3BooleanField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -15245,7 +15245,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getHeadblocktimewebothhave = function
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setHeadblocktimewebothhave = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -15262,7 +15262,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getNeedsyncfrompeer = function() {
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setNeedsyncfrompeer = function(value) {
-  jspb.Message.setProto3BooleanField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -15279,7 +15279,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getNeedsyncfromus = function() {
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setNeedsyncfromus = function(value) {
-  jspb.Message.setProto3BooleanField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -15294,7 +15294,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getHost = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setHost = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -15309,7 +15309,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getPort = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setPort = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -15324,7 +15324,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getNodeid = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setNodeid = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -15339,7 +15339,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getConnecttime = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setConnecttime = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -15354,7 +15354,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getAvglatency = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setAvglatency = function(value) {
-  jspb.Message.setProto3FloatField(this, 12, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -15369,7 +15369,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getSynctofetchsize = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setSynctofetchsize = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  jspb.Message.setField(this, 13, value);
 };
 
 
@@ -15384,7 +15384,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getSynctofetchsizepeeknum = function(
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setSynctofetchsizepeeknum = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -15399,7 +15399,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getSyncblockrequestedsize = function(
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setSyncblockrequestedsize = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -15414,7 +15414,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getUnfetchsynnum = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setUnfetchsynnum = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  jspb.Message.setField(this, 16, value);
 };
 
 
@@ -15429,7 +15429,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getBlockinporcsize = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setBlockinporcsize = function(value) {
-  jspb.Message.setProto3IntField(this, 17, value);
+  jspb.Message.setField(this, 17, value);
 };
 
 
@@ -15444,7 +15444,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getHeadblockwebothhave = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setHeadblockwebothhave = function(value) {
-  jspb.Message.setProto3StringField(this, 18, value);
+  jspb.Message.setField(this, 18, value);
 };
 
 
@@ -15461,7 +15461,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getIsactive = function() {
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setIsactive = function(value) {
-  jspb.Message.setProto3BooleanField(this, 19, value);
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -15476,7 +15476,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getScore = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setScore = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  jspb.Message.setField(this, 20, value);
 };
 
 
@@ -15491,7 +15491,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getNodecount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setNodecount = function(value) {
-  jspb.Message.setProto3IntField(this, 21, value);
+  jspb.Message.setField(this, 21, value);
 };
 
 
@@ -15506,7 +15506,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getInflow = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setInflow = function(value) {
-  jspb.Message.setProto3IntField(this, 22, value);
+  jspb.Message.setField(this, 22, value);
 };
 
 
@@ -15521,7 +15521,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getDisconnecttimes = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setDisconnecttimes = function(value) {
-  jspb.Message.setProto3IntField(this, 23, value);
+  jspb.Message.setField(this, 23, value);
 };
 
 
@@ -15536,7 +15536,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getLocaldisconnectreason = function()
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setLocaldisconnectreason = function(value) {
-  jspb.Message.setProto3StringField(this, 24, value);
+  jspb.Message.setField(this, 24, value);
 };
 
 
@@ -15551,7 +15551,7 @@ proto.protocol.NodeInfo.PeerInfo.prototype.getRemotedisconnectreason = function(
 
 /** @param {string} value */
 proto.protocol.NodeInfo.PeerInfo.prototype.setRemotedisconnectreason = function(value) {
-  jspb.Message.setProto3StringField(this, 25, value);
+  jspb.Message.setField(this, 25, value);
 };
 
 
@@ -15909,7 +15909,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getCodeversion = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setCodeversion = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -15924,7 +15924,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getP2pversion = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setP2pversion = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -15939,7 +15939,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getListenport = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setListenport = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -15956,7 +15956,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getDiscoverenable = function() 
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setDiscoverenable = function(value) {
-  jspb.Message.setProto3BooleanField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -15971,7 +15971,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getActivenodesize = function() 
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setActivenodesize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -15986,7 +15986,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getPassivenodesize = function()
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setPassivenodesize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -16001,7 +16001,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getSendnodesize = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setSendnodesize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -16016,7 +16016,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getMaxconnectcount = function()
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setMaxconnectcount = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -16031,7 +16031,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getSameipmaxconnectcount = func
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setSameipmaxconnectcount = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -16046,7 +16046,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getBackuplistenport = function(
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setBackuplistenport = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -16061,7 +16061,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getBackupmembersize = function(
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setBackupmembersize = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -16076,7 +16076,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getBackuppriority = function() 
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setBackuppriority = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -16091,7 +16091,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getDbversion = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setDbversion = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  jspb.Message.setField(this, 13, value);
 };
 
 
@@ -16106,7 +16106,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getMinparticipationrate = funct
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setMinparticipationrate = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  jspb.Message.setField(this, 14, value);
 };
 
 
@@ -16123,7 +16123,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getSupportconstant = function()
 
 /** @param {boolean} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setSupportconstant = function(value) {
-  jspb.Message.setProto3BooleanField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -16138,7 +16138,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getMintimeratio = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setMintimeratio = function(value) {
-  jspb.Message.setProto3FloatField(this, 16, value);
+  jspb.Message.setField(this, 16, value);
 };
 
 
@@ -16153,7 +16153,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getMaxtimeratio = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setMaxtimeratio = function(value) {
-  jspb.Message.setProto3FloatField(this, 17, value);
+  jspb.Message.setField(this, 17, value);
 };
 
 
@@ -16168,7 +16168,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getAllowcreationofcontracts = f
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setAllowcreationofcontracts = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+  jspb.Message.setField(this, 18, value);
 };
 
 
@@ -16183,7 +16183,7 @@ proto.protocol.NodeInfo.ConfigNodeInfo.prototype.getAllowadaptiveenergy = functi
 
 /** @param {number} value */
 proto.protocol.NodeInfo.ConfigNodeInfo.prototype.setAllowadaptiveenergy = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -16657,7 +16657,7 @@ proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.getName = function(
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -16672,7 +16672,7 @@ proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.getInitsize = funct
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.setInitsize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -16687,7 +16687,7 @@ proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.getUsesize = functi
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.setUsesize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -16702,7 +16702,7 @@ proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.getMaxsize = functi
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.setMaxsize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -16717,7 +16717,7 @@ proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.getUserate = functi
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.MemoryDescInfo.prototype.setUserate = function(value) {
-  jspb.Message.setProto3FloatField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -16931,7 +16931,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getName = funct
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -16946,7 +16946,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getLockname = f
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setLockname = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -16961,7 +16961,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getLockowner = 
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setLockowner = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -16976,7 +16976,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getState = func
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setState = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -16991,7 +16991,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getBlocktime = 
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setBlocktime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -17006,7 +17006,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getWaittime = f
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setWaittime = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -17021,7 +17021,7 @@ proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.getStacktrace =
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.DeadLockThreadInfo.prototype.setStacktrace = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -17036,7 +17036,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getThreadcount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setThreadcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -17051,7 +17051,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getDeadlockthreadcount = function(
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setDeadlockthreadcount = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -17066,7 +17066,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getCpucount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setCpucount = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -17081,7 +17081,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getTotalmemory = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setTotalmemory = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -17096,7 +17096,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getFreememory = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setFreememory = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -17111,7 +17111,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getCpurate = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setCpurate = function(value) {
-  jspb.Message.setProto3FloatField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -17126,7 +17126,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getJavaversion = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setJavaversion = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -17141,7 +17141,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getOsname = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setOsname = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -17156,7 +17156,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getJvmtotalmemoery = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setJvmtotalmemoery = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -17171,7 +17171,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getJvmfreememory = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setJvmfreememory = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -17186,7 +17186,7 @@ proto.protocol.NodeInfo.MachineInfo.prototype.getProcesscpurate = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.MachineInfo.prototype.setProcesscpurate = function(value) {
-  jspb.Message.setProto3FloatField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -17263,7 +17263,7 @@ proto.protocol.NodeInfo.prototype.getBeginsyncnum = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.prototype.setBeginsyncnum = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -17278,7 +17278,7 @@ proto.protocol.NodeInfo.prototype.getBlock = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.prototype.setBlock = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -17293,7 +17293,7 @@ proto.protocol.NodeInfo.prototype.getSolidityblock = function() {
 
 /** @param {string} value */
 proto.protocol.NodeInfo.prototype.setSolidityblock = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -17308,7 +17308,7 @@ proto.protocol.NodeInfo.prototype.getCurrentconnectcount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.prototype.setCurrentconnectcount = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -17323,7 +17323,7 @@ proto.protocol.NodeInfo.prototype.getActiveconnectcount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.prototype.setActiveconnectcount = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -17338,7 +17338,7 @@ proto.protocol.NodeInfo.prototype.getPassiveconnectcount = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.prototype.setPassiveconnectcount = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -17353,7 +17353,7 @@ proto.protocol.NodeInfo.prototype.getTotalflow = function() {
 
 /** @param {number} value */
 proto.protocol.NodeInfo.prototype.setTotalflow = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 

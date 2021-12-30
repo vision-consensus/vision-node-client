@@ -2,21 +2,13 @@ syntax = "proto3";
 package protocol;
 
 import "core/Vision.proto";
+import "core/Contract.proto";
 import "google/api/annotations.proto";
 
-import "core/contract/asset_issue_contract.proto";
-import "core/contract/account_contract.proto";
-import "core/contract/witness_contract.proto";
-import "core/contract/balance_contract.proto";
-import "core/contract/proposal_contract.proto";
-import "core/contract/storage_contract.proto";
-import "core/contract/exchange_contract.proto";
-import "core/contract/market_contract.proto";
-import "core/contract/smart_contract.proto";
-import "core/contract/shield_contract.proto";
 
 option java_package = "org.vision.api"; //Specify the name of the package that generated the Java file
 option java_outer_classname = "GrpcAPI"; //Specify the class name of the generated Java file
+option go_package = "github.com/visionprotocol/grpc-gateway/api";
 
 service Wallet {
 
@@ -36,34 +28,6 @@ service Wallet {
       body: "*"
       additional_bindings {
         get: "/wallet/getaccountbyid"
-      }
-    };
-  };
-  rpc GetAccountBalance (AccountBalanceRequest) returns (AccountBalanceResponse) {
-    option (google.api.http) = {
-      post: "/wallet/getaccountbalance"
-      body: "*"
-      additional_bindings {
-        get: "/wallet/getaccountbalance"
-      }
-    };
-  };
-  rpc GetBlockBalanceTrace (BlockBalanceTrace.BlockIdentifier) returns (BlockBalanceTrace) {
-    option (google.api.http) = {
-      post: "/wallet/getblockbalancetrace"
-      body: "*"
-      additional_bindings {
-        get: "/wallet/getblockbalancetrace"
-      }
-    };
-  };
-
-  rpc GetSpreadMintParent (SpreadRelationShipMessage) returns (SpreadRelationShipList) {
-    option (google.api.http) = {
-      post: "/wallet/getspreadmintparent"
-      body: "*"
-      additional_bindings {
-        get: "/wallet/getspreadmintparent"
       }
     };
   };
@@ -132,8 +96,8 @@ service Wallet {
   rpc UpdateSetting (UpdateSettingContract) returns (TransactionExtention) {
   };
 
-  //modify the entropy_limit
-  rpc UpdateEntropyLimit (UpdateEntropyLimitContract) returns (TransactionExtention) {
+  //modify the energy_limit
+  rpc UpdateEnergyLimit (UpdateEnergyLimitContract) returns (TransactionExtention) {
   };
 
   //Use this function instead of VoteWitnessAccount.
@@ -178,7 +142,6 @@ service Wallet {
   //Use this function instead of CreateAccount.
   rpc CreateAccount2 (AccountCreateContract) returns (TransactionExtention) {
   }
-
   //Please use CreateWitness2 instead of this function.
   rpc CreateWitness (WitnessCreateContract) returns (Transaction) {
     option (google.api.http) = {
@@ -314,28 +277,6 @@ service Wallet {
   rpc ExchangeTransaction (ExchangeTransactionContract) returns (TransactionExtention) {
   }
 
-  rpc MarketSellAsset (MarketSellAssetContract) returns (TransactionExtention) {
-  }
-
-  rpc MarketCancelOrder (MarketCancelOrderContract) returns (TransactionExtention) {
-  }
-
-  rpc GetMarketOrderById (BytesMessage) returns (MarketOrder) {
-  }
-
-  rpc GetMarketOrderByAccount (BytesMessage) returns (MarketOrderList) {
-  }
-
-  rpc GetMarketPriceByPair (MarketOrderPair) returns (MarketPriceList) {
-  }
-
-  rpc GetMarketOrderListByPair (MarketOrderPair) returns (MarketOrderList) {
-  }
-
-  rpc GetMarketPairList (EmptyMessage) returns (MarketOrderPairList) {
-  }
-
-
   rpc ListNodes (EmptyMessage) returns (NodeList) {
     option (google.api.http) = {
       post: "/wallet/listnodes"
@@ -355,12 +296,12 @@ service Wallet {
       }
     };
   }
-  rpc GetAccountPhoton (Account) returns (AccountPhotonMessage) {
+  rpc GetAccountNet (Account) returns (AccountNetMessage) {
     option (google.api.http) = {
-        post: "/wallet/getaccountphoton"
+        post: "/wallet/getaccountnet"
         body: "*"
         additional_bindings {
-          get: "/wallet/getaccountphoton"
+          get: "/wallet/getaccountnet"
         }
       };
   };
@@ -460,15 +401,12 @@ service Wallet {
   rpc GetContract (BytesMessage) returns (SmartContract) {
   }
 
-  rpc GetContractInfo (BytesMessage) returns (SmartContractDataWrapper) {
-  }
-
   rpc TriggerContract (TriggerSmartContract) returns (TransactionExtention) {
   }
 
   rpc TriggerConstantContract (TriggerSmartContract) returns (TransactionExtention) {
   }
-
+  
   rpc ClearContractABI (ClearABIContract) returns (TransactionExtention) {
   }
 
@@ -482,8 +420,6 @@ service Wallet {
     };
   };
 
-  rpc GetSpreadRelationShip (SpreadRelationShipMessage) returns (SpreadRelationShipList) {
-  };
 
   rpc GetDelegatedResource (DelegatedResourceMessage) returns (DelegatedResourceList) {
   };
@@ -678,6 +614,7 @@ service Wallet {
     };
   }
 
+
   rpc AddSign (TransactionSign) returns (TransactionExtention) {
 
   }
@@ -686,7 +623,7 @@ service Wallet {
 
   }
 
-  rpc GetTransactionApprovedList (Transaction) returns (TransactionApprovedList) {
+  rpc GetTransactionApprovedList(Transaction) returns (TransactionApprovedList) {
 
   }
 
@@ -703,93 +640,8 @@ service Wallet {
 
   };
 
-  // for shiededTransaction
-  rpc CreateShieldedTransaction (PrivateParameters) returns (TransactionExtention) {
-  };
-
-  rpc GetMerkleTreeVoucherInfo (OutputPointInfo) returns (IncrementalMerkleVoucherInfo) {
-  }
-
-  rpc ScanNoteByIvk (IvkDecryptParameters) returns (DecryptNotes) {
-  };
-
-  rpc ScanAndMarkNoteByIvk (IvkDecryptAndMarkParameters) returns (DecryptNotesMarked) {
-  };
-
-  rpc ScanNoteByOvk (OvkDecryptParameters) returns (DecryptNotes) {
-  };
-
-  rpc GetSpendingKey (EmptyMessage) returns (BytesMessage) {
-  }
-
-  rpc GetExpandedSpendingKey (BytesMessage) returns (ExpandedSpendingKeyMessage) {
-  }
-
-  rpc GetAkFromAsk (BytesMessage) returns (BytesMessage) {
-  }
-
-  rpc GetNkFromNsk (BytesMessage) returns (BytesMessage) {
-  }
-
-  rpc GetIncomingViewingKey (ViewingKeyMessage) returns (IncomingViewingKeyMessage) {
-  }
-
-  rpc GetDiversifier (EmptyMessage) returns (DiversifierMessage) {
-  }
-
-  rpc GetNewShieldedAddress (EmptyMessage) returns (ShieldedAddressInfo) {
-  }
-
-  rpc GetZenPaymentAddress (IncomingViewingKeyDiversifierMessage) returns (PaymentAddressMessage) {
-  }
-
-  rpc GetRcm (EmptyMessage) returns (BytesMessage) {
-  }
-
-  rpc IsSpend (NoteParameters) returns (SpendResult) {
-  }
-
-  rpc CreateShieldedTransactionWithoutSpendAuthSig (PrivateParametersWithoutAsk) returns (TransactionExtention) {
-  };
-
-  rpc GetShieldTransactionHash (Transaction) returns (BytesMessage) {
-  };
-
-  rpc CreateSpendAuthSig (SpendAuthSigParameters) returns (BytesMessage) {
-  };
-
-  rpc CreateShieldNullifier (NfParameters) returns (BytesMessage) {
-  };
-
-  //for shielded contract
-  rpc CreateShieldedContractParameters (PrivateShieldedVRC20Parameters) returns (ShieldedVRC20Parameters) {
-  };
-
-  rpc CreateShieldedContractParametersWithoutAsk (PrivateShieldedVRC20ParametersWithoutAsk) returns (ShieldedVRC20Parameters) {
-  };
-
-  rpc ScanShieldedVRC20NotesByIvk (IvkDecryptVRC20Parameters) returns (DecryptNotesVRC20) {
-  };
-
-  rpc ScanShieldedVRC20NotesByOvk (OvkDecryptVRC20Parameters) returns (DecryptNotesVRC20) {
-  };
-
-  rpc IsShieldedVRC20ContractNoteSpent (NfVRC20Parameters) returns (NullifierResult) {
-  };
-
-  rpc GetTriggerInputForShieldedVRC20Contract (ShieldedVRC20TriggerContractParameters) returns (BytesMessage) {
-  };
-  // end for shiededTransaction
-
-  rpc CreateCommonTransaction (Transaction) returns (TransactionExtention) {
-  };
-
-  rpc GetTransactionInfoByBlockNum (NumberMessage) returns (TransactionInfoList) {
-  }
-
-  rpc GetBurnVs (EmptyMessage) returns (NumberMessage) {
-  }
 };
+
 
 service WalletSolidity {
 
@@ -921,29 +773,8 @@ service WalletSolidity {
     };
   }
 
-  rpc GetMerkleTreeVoucherInfo (OutputPointInfo) returns (IncrementalMerkleVoucherInfo) {
+  rpc TriggerConstantContract (TriggerSmartContract) returns (TransactionExtention) {
   }
-
-  rpc ScanNoteByIvk (IvkDecryptParameters) returns (DecryptNotes) {
-  }
-
-  rpc ScanAndMarkNoteByIvk (IvkDecryptAndMarkParameters) returns (DecryptNotesMarked) {
-  }
-
-  rpc ScanNoteByOvk (OvkDecryptParameters) returns (DecryptNotes) {
-  }
-
-  rpc IsSpend (NoteParameters) returns (SpendResult) {
-  }
-
-  rpc ScanShieldedVRC20NotesByIvk (IvkDecryptVRC20Parameters) returns (DecryptNotesVRC20) {
-  };
-
-  rpc ScanShieldedVRC20NotesByOvk (OvkDecryptVRC20Parameters) returns (DecryptNotesVRC20) {
-  };
-
-  rpc IsShieldedVRC20ContractNoteSpent (NfVRC20Parameters) returns (NullifierResult) {
-  };
 
   rpc GetRewardInfo (BytesMessage) returns (NumberMessage) {
   };
@@ -951,29 +782,6 @@ service WalletSolidity {
   rpc GetBrokerageInfo (BytesMessage) returns (NumberMessage) {
   };
 
-  rpc TriggerConstantContract (TriggerSmartContract) returns (TransactionExtention) {
-  }
-
-  rpc GetTransactionInfoByBlockNum (NumberMessage) returns (TransactionInfoList) {
-  }
-
-  rpc GetMarketOrderById (BytesMessage) returns (MarketOrder) {
-  }
-
-  rpc GetMarketOrderByAccount (BytesMessage) returns (MarketOrderList) {
-  }
-
-  rpc GetMarketPriceByPair (MarketOrderPair) returns (MarketPriceList) {
-  }
-
-  rpc GetMarketOrderListByPair (MarketOrderPair) returns (MarketOrderList) {
-  }
-
-  rpc GetMarketPairList (EmptyMessage) returns (MarketOrderPairList) {
-  }
-
-  rpc GetBurnVs (EmptyMessage) returns (NumberMessage) {
-  }
 };
 
 service WalletExtension {
@@ -1005,7 +813,6 @@ service WalletExtension {
   }
 };
 
-// the api of vision's db
 service Database {
   // for tapos
   rpc getBlockReference (EmptyMessage) returns (BlockReference) {
@@ -1022,25 +829,13 @@ service Database {
   }
 };
 
-service Monitor {
-  rpc GetStatsInfo (EmptyMessage) returns (MetricsInfo) {
-    option (google.api.http) = {
-      post: "/monitor/getstatsinfo"
-      body: "*"
-      additional_bindings {
-        get: "/monitor/getstatsinfo"
-      }
-    };
-  }
-}
-
 message Return {
   enum response_code {
     SUCCESS = 0;
     SIGERROR = 1; // error in signature
     CONTRACT_VALIDATE_ERROR = 2;
     CONTRACT_EXE_ERROR = 3;
-    PHOTON_ERROR = 4;
+    BANDWITH_ERROR = 4;
     DUP_TRANSACTION_ERROR = 5;
     TAPOS_ERROR = 6;
     TOO_BIG_TRANSACTION_ERROR = 7;
@@ -1061,7 +856,6 @@ message BlockReference {
   bytes block_hash = 2;
 }
 
-// the api of vision's network such as node list.
 service Network {
 
 };
@@ -1090,17 +884,6 @@ message DelegatedResourceMessage {
 }
 message DelegatedResourceList {
   repeated DelegatedResource delegatedResource = 1;
-}
-
-message SpreadRelationShipMessage {
-  bytes ownerAddress = 1;
-  bytes parentAddress = 2;
-  int32 level = 3;
-  bytes address = 4;
-}
-
-message SpreadRelationShipList {
-  repeated SpreadRelationShip spreadRelationShip = 1;
 }
 
 // Gossip node list
@@ -1150,36 +933,33 @@ message TimePaginatedMessage {
   int64 limit = 3;
 }
 //deprecated
-message AccountPhotonMessage {
-  int64 freePhotonUsed = 1;
-  int64 freePhotonLimit = 2;
-  int64 PhotonUsed = 3;
-  int64 PhotonLimit = 4;
-  map<string, int64> assetPhotonUsed = 5;
-  map<string, int64> assetPhotonLimit = 6;
-  int64 TotalPhotonLimit = 7;
-  int64 TotalPhotonWeight = 8;
+message AccountNetMessage {
+  int64 freeNetUsed = 1;
+  int64 freeNetLimit = 2;
+  int64 NetUsed = 3;
+  int64 NetLimit = 4;
+  map<string, int64> assetNetUsed = 5;
+  map<string, int64> assetNetLimit = 6;
+  int64 TotalNetLimit = 7;
+  int64 TotalNetWeight = 8;
 }
 message AccountResourceMessage {
-  int64 freePhotonUsed = 1;
-  int64 freePhotonLimit = 2;
-  int64 PhotonUsed = 3;
-  int64 PhotonLimit = 4;
-  map<string, int64> assetPhotonUsed = 5;
-  map<string, int64> assetPhotonLimit = 6;
-  int64 TotalPhotonLimit = 7;
-  int64 TotalPhotonWeight = 8;
+  int64 freeNetUsed = 1;
+  int64 freeNetLimit = 2;
+  int64 NetUsed = 3;
+  int64 NetLimit = 4;
+  map<string, int64> assetNetUsed = 5;
+  map<string, int64> assetNetLimit = 6;
+  int64 TotalNetLimit = 7;
+  int64 TotalNetWeight = 8;
 
-  int64 EntropyUsed = 13;
-  int64 EntropyLimit = 14;
-  int64 TotalEntropyLimit = 15;
-  int64 TotalEntropyWeight = 16;
+  int64 EnergyUsed = 13;
+  int64 EnergyLimit = 14;
+  int64 TotalEnergyLimit = 15;
+  int64 TotalEnergyWeight = 16;
 
   int64 storageUsed = 21;
   int64 storageLimit = 22;
-
-  int64 TotalSRGuaranteeWeight = 27;
-  int64 TotalSpreadWeight = 32;
 }
 
 message PaginatedMessage {
@@ -1191,6 +971,8 @@ message EasyTransferMessage {
   bytes passPhrase = 1;
   bytes toAddress = 2;
   int64 amount = 3;
+  int64 type = 4;  //if type=eth validate eth sign else validate vision sign  0 or null -> vision, 1 -> eth
+  bytes rlp_data = 5; // eth's RLP rawData
 }
 
 message EasyTransferAssetMessage {
@@ -1245,11 +1027,6 @@ message TransactionListExtention {
   repeated TransactionExtention transaction = 1;
 }
 
-message BlockIncrementalMerkleTree {
-  int64 number = 1;
-  IncrementalMerkleTree merkleTree = 2;
-}
-
 message TransactionSignWeight {
   message Result {
     enum response_code {
@@ -1286,251 +1063,4 @@ message TransactionApprovedList {
   repeated bytes approved_list = 2;
   Result result = 4;
   TransactionExtention transaction = 5;
-}
-
-message IvkDecryptParameters {
-  int64 start_block_index = 1;
-  int64 end_block_index = 2;
-  bytes ivk = 3;
-}
-
-message IvkDecryptAndMarkParameters {
-  int64 start_block_index = 1;
-  int64 end_block_index = 2;
-  bytes ivk = 5;
-  bytes ak = 3;
-  bytes nk = 4;
-}
-
-message OvkDecryptParameters {
-  int64 start_block_index = 1;
-  int64 end_block_index = 2;
-  bytes ovk = 3;
-}
-
-message DecryptNotes {
-  message NoteTx {
-    Note note = 1;
-    bytes txid = 2; //transaction id =  sha256(transaction.rowdata)
-    int32 index = 3; //the index of note in receive
-  }
-  repeated NoteTx noteTxs = 1;
-}
-
-message DecryptNotesMarked {
-  message NoteTx {
-    Note note = 1;
-    bytes txid = 2; //transaction id =  sha256(transaction.rowdata)
-    int32 index = 3; //the index of note in receive
-    bool is_spend = 4;
-  }
-  repeated NoteTx noteTxs = 1;
-}
-
-message Note {
-  int64 value = 1;
-  string payment_address = 2;
-  bytes rcm = 3; // random 32
-  bytes memo = 4;
-}
-
-message SpendNote {
-  Note note = 3;
-  bytes alpha = 4; // random number for spend authority signature
-  IncrementalMerkleVoucher voucher = 5;
-  bytes path = 6; // path for cm from leaf to root in merkle tree
-}
-
-message ReceiveNote {
-  Note note = 1;
-}
-
-message PrivateParameters {
-  bytes transparent_from_address = 1;
-  bytes ask = 2;
-  bytes nsk = 3;
-  bytes ovk = 4;
-  int64 from_amount = 5;
-  repeated SpendNote shielded_spends = 6;
-  repeated ReceiveNote shielded_receives = 7;
-  bytes transparent_to_address = 8;
-  int64 to_amount = 9;
-  int64 timeout = 10; // timeout in seconds, it works only when it bigger than 0
-}
-
-message PrivateParametersWithoutAsk {
-  bytes transparent_from_address = 1;
-  bytes ak = 2;
-  bytes nsk = 3;
-  bytes ovk = 4;
-  int64 from_amount = 5;
-  repeated SpendNote shielded_spends = 6;
-  repeated ReceiveNote shielded_receives = 7;
-  bytes transparent_to_address = 8;
-  int64 to_amount = 9;
-  int64 timeout = 10; // timeout in seconds, it works only when it bigger than 0
-}
-
-message SpendAuthSigParameters {
-  bytes ask = 1;
-  bytes tx_hash = 2;
-  bytes alpha = 3;
-}
-
-message NfParameters {
-  Note note = 1;
-  IncrementalMerkleVoucher voucher = 2;
-  bytes ak = 3;
-  bytes nk = 4;
-}
-
-message ExpandedSpendingKeyMessage {
-  bytes ask = 1;
-  bytes nsk = 2;
-  bytes ovk = 3;
-}
-
-message ViewingKeyMessage {
-  bytes ak = 1;
-  bytes nk = 2;
-}
-
-message IncomingViewingKeyMessage {
-  bytes ivk = 1;
-}
-
-message DiversifierMessage {
-  bytes d = 1;
-}
-
-message IncomingViewingKeyDiversifierMessage {
-  IncomingViewingKeyMessage ivk = 1;
-  DiversifierMessage d = 2;
-}
-
-message PaymentAddressMessage {
-  DiversifierMessage d = 1;
-  bytes pkD = 2;
-  string payment_address = 3;
-}
-
-message ShieldedAddressInfo {
-  bytes sk = 1;
-  bytes ask = 2;
-  bytes nsk = 3;
-  bytes ovk = 4;
-  bytes ak = 5;
-  bytes nk = 6;
-  bytes ivk = 7;
-  bytes d = 8;
-  bytes pkD = 9;
-  string payment_address = 10;
-}
-
-message NoteParameters {
-  bytes ak = 1;
-  bytes nk = 2;
-  Note note = 3;
-  bytes txid = 4;
-  int32 index = 5;
-}
-
-message SpendResult {
-  bool result = 1;
-  string message = 2;
-}
-
-message TransactionInfoList {
-  repeated TransactionInfo transactionInfo = 1;
-}
-
-message SpendNoteVRC20 {
-  Note note = 1;
-  bytes alpha = 2;
-  bytes root = 3;
-  bytes path = 4;
-  int64 pos = 5;
-}
-
-message PrivateShieldedVRC20Parameters {
-  bytes ask = 1;
-  bytes nsk = 2;
-  bytes ovk = 3;
-  string from_amount = 4;
-  repeated SpendNoteVRC20 shielded_spends = 5;
-  repeated ReceiveNote shielded_receives = 6;
-  bytes transparent_to_address = 7;
-  string to_amount = 8;
-  bytes shielded_VRC20_contract_address = 9;
-}
-
-message PrivateShieldedVRC20ParametersWithoutAsk {
-  bytes ak = 1;
-  bytes nsk = 2;
-  bytes ovk = 3;
-  string from_amount = 4;
-  repeated SpendNoteVRC20 shielded_spends = 5;
-  repeated ReceiveNote shielded_receives = 6;
-  bytes transparent_to_address = 7;
-  string to_amount = 8;
-  bytes shielded_VRC20_contract_address = 9;
-}
-
-message ShieldedVRC20Parameters {
-  repeated SpendDescription spend_description = 1;
-  repeated ReceiveDescription receive_description = 2;
-  bytes binding_signature = 3;
-  bytes message_hash = 4;
-  string trigger_contract_input = 5;
-  string parameter_type = 6;
-}
-
-message IvkDecryptVRC20Parameters {
-  int64 start_block_index = 1;
-  int64 end_block_index = 2;
-  bytes shielded_VRC20_contract_address = 3;
-  bytes ivk = 4;
-  bytes ak = 5;
-  bytes nk = 6;
-  repeated string events = 7;
-}
-
-message OvkDecryptVRC20Parameters {
-  int64 start_block_index = 1;
-  int64 end_block_index = 2;
-  bytes ovk = 3;
-  bytes shielded_VRC20_contract_address = 4;
-  repeated string events = 5;
-}
-
-message DecryptNotesVRC20 {
-  message NoteTx {
-    Note note = 1;
-    int64 position = 2;
-    bool is_spent = 3;
-    bytes txid = 4;
-    int32 index = 5; //the index of note in txid
-    string to_amount = 6;
-    bytes transparent_to_address = 7;
-  }
-  repeated NoteTx noteTxs = 1;
-}
-
-message NfVRC20Parameters {
-  Note note = 1;
-  bytes ak = 2;
-  bytes nk = 3;
-  int64 position = 4;
-  bytes shielded_VRC20_contract_address = 5;
-}
-
-message NullifierResult {
-  bool is_spent = 1;
-}
-
-message ShieldedVRC20TriggerContractParameters {
-  ShieldedVRC20Parameters shielded_VRC20_Parameters = 1;
-  repeated BytesMessage spend_authority_signature = 2;
-  string amount = 3;
-  bytes transparent_to_address = 4;
 }

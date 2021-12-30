@@ -234,7 +234,7 @@ proto.protocol.AccountCreateContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountCreateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -273,7 +273,7 @@ proto.protocol.AccountCreateContract.prototype.getAccountAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountCreateContract.prototype.setAccountAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -288,7 +288,7 @@ proto.protocol.AccountCreateContract.prototype.getType = function() {
 
 /** @param {!proto.protocol.AccountType} value */
 proto.protocol.AccountCreateContract.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -466,7 +466,7 @@ proto.protocol.AccountUpdateContract.prototype.getAccountName_asU8 = function() 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountUpdateContract.prototype.setAccountName = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -505,7 +505,7 @@ proto.protocol.AccountUpdateContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountUpdateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -683,7 +683,7 @@ proto.protocol.SetAccountIdContract.prototype.getAccountId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SetAccountIdContract.prototype.setAccountId = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -722,7 +722,7 @@ proto.protocol.SetAccountIdContract.prototype.getOwnerAddress_asU8 = function() 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SetAccountIdContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -775,13 +775,14 @@ proto.protocol.TransferContract.toObject = function(includeInstance, msg) {
   var f, obj = {
     ownerAddress: msg.getOwnerAddress_asB64(),
     toAddress: msg.getToAddress_asB64(),
-    amount: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    amount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    rlpData: msg.getRlpData_asB64()
   };
 
   if (includeInstance) {
     obj.$jspbMessageInstance = msg;
   }
-  console.log('obj',obj)
   return obj;
 };
 }
@@ -824,6 +825,14 @@ proto.protocol.TransferContract.deserializeBinaryFromReader = function(msg, read
     case 3:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAmount(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setType(value);
+      break;
+    case 5:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setRlpData(value);
       break;
     default:
       reader.skipField();
@@ -875,6 +884,20 @@ proto.protocol.TransferContract.serializeBinaryToWriter = function(message, writ
       f
     );
   }
+  f = message.getType();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
+  f = message.getRlpData_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      5,
+      f
+    );
+  }
 };
 
 
@@ -913,7 +936,7 @@ proto.protocol.TransferContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransferContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -952,7 +975,7 @@ proto.protocol.TransferContract.prototype.getToAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransferContract.prototype.setToAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -967,7 +990,61 @@ proto.protocol.TransferContract.prototype.getAmount = function() {
 
 /** @param {number} value */
 proto.protocol.TransferContract.prototype.setAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int64 type = 4;
+ * @return {number}
+ */
+proto.protocol.TransferContract.prototype.getType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.protocol.TransferContract.prototype.setType = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional bytes rlp_data = 5;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protocol.TransferContract.prototype.getRlpData = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * optional bytes rlp_data = 5;
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {string}
+ */
+proto.protocol.TransferContract.prototype.getRlpData_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getRlpData()));
+};
+
+
+/**
+ * optional bytes rlp_data = 5;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {!Uint8Array}
+ */
+proto.protocol.TransferContract.prototype.getRlpData_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getRlpData()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.protocol.TransferContract.prototype.setRlpData = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -1169,7 +1246,7 @@ proto.protocol.TransferAssetContract.prototype.getAssetName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransferAssetContract.prototype.setAssetName = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1208,7 +1285,7 @@ proto.protocol.TransferAssetContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransferAssetContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -1247,7 +1324,7 @@ proto.protocol.TransferAssetContract.prototype.getToAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TransferAssetContract.prototype.setToAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1262,7 +1339,7 @@ proto.protocol.TransferAssetContract.prototype.getAmount = function() {
 
 /** @param {number} value */
 proto.protocol.TransferAssetContract.prototype.setAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -1471,7 +1548,7 @@ proto.protocol.VoteAssetContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.VoteAssetContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1541,7 +1618,7 @@ proto.protocol.VoteAssetContract.prototype.getSupport = function() {
 
 /** @param {boolean} value */
 proto.protocol.VoteAssetContract.prototype.setSupport = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1556,7 +1633,7 @@ proto.protocol.VoteAssetContract.prototype.getCount = function() {
 
 /** @param {number} value */
 proto.protocol.VoteAssetContract.prototype.setCount = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -1895,7 +1972,7 @@ proto.protocol.VoteWitnessContract.Vote.prototype.getVoteAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.VoteWitnessContract.Vote.prototype.setVoteAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1910,7 +1987,7 @@ proto.protocol.VoteWitnessContract.Vote.prototype.getVoteCount = function() {
 
 /** @param {number} value */
 proto.protocol.VoteWitnessContract.Vote.prototype.setVoteCount = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -1949,7 +2026,7 @@ proto.protocol.VoteWitnessContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.VoteWitnessContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1997,7 +2074,7 @@ proto.protocol.VoteWitnessContract.prototype.getSupport = function() {
 
 /** @param {boolean} value */
 proto.protocol.VoteWitnessContract.prototype.setSupport = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -2187,7 +2264,7 @@ proto.protocol.UpdateSettingContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateSettingContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2226,7 +2303,7 @@ proto.protocol.UpdateSettingContract.prototype.getContractAddress_asU8 = functio
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateSettingContract.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2241,7 +2318,7 @@ proto.protocol.UpdateSettingContract.prototype.getConsumeUserResourcePercent = f
 
 /** @param {number} value */
 proto.protocol.UpdateSettingContract.prototype.setConsumeUserResourcePercent = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -2431,7 +2508,7 @@ proto.protocol.UpdateEnergyLimitContract.prototype.getOwnerAddress_asU8 = functi
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateEnergyLimitContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2470,7 +2547,7 @@ proto.protocol.UpdateEnergyLimitContract.prototype.getContractAddress_asU8 = fun
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateEnergyLimitContract.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2485,7 +2562,7 @@ proto.protocol.UpdateEnergyLimitContract.prototype.getOriginEnergyLimit = functi
 
 /** @param {number} value */
 proto.protocol.UpdateEnergyLimitContract.prototype.setOriginEnergyLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -2663,7 +2740,7 @@ proto.protocol.ClearABIContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ClearABIContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2702,7 +2779,7 @@ proto.protocol.ClearABIContract.prototype.getContractAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ClearABIContract.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -2880,7 +2957,7 @@ proto.protocol.WitnessCreateContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.WitnessCreateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2919,7 +2996,7 @@ proto.protocol.WitnessCreateContract.prototype.getUrl_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.WitnessCreateContract.prototype.setUrl = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -3097,7 +3174,7 @@ proto.protocol.WitnessUpdateContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.WitnessUpdateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3136,7 +3213,7 @@ proto.protocol.WitnessUpdateContract.prototype.getUpdateUrl_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.WitnessUpdateContract.prototype.setUpdateUrl = function(value) {
-  jspb.Message.setProto3BytesField(this, 12, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -3643,7 +3720,7 @@ proto.protocol.AssetIssueContract.FrozenSupply.prototype.getFrozenAmount = funct
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.FrozenSupply.prototype.setFrozenAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3658,7 +3735,7 @@ proto.protocol.AssetIssueContract.FrozenSupply.prototype.getFrozenDays = functio
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.FrozenSupply.prototype.setFrozenDays = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -3673,7 +3750,7 @@ proto.protocol.AssetIssueContract.prototype.getId = function() {
 
 /** @param {string} value */
 proto.protocol.AssetIssueContract.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 41, value);
+  jspb.Message.setField(this, 41, value);
 };
 
 
@@ -3712,7 +3789,7 @@ proto.protocol.AssetIssueContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AssetIssueContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3751,7 +3828,7 @@ proto.protocol.AssetIssueContract.prototype.getName_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AssetIssueContract.prototype.setName = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -3790,7 +3867,7 @@ proto.protocol.AssetIssueContract.prototype.getAbbr_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AssetIssueContract.prototype.setAbbr = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -3805,7 +3882,7 @@ proto.protocol.AssetIssueContract.prototype.getTotalSupply = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setTotalSupply = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -3851,7 +3928,7 @@ proto.protocol.AssetIssueContract.prototype.getTrxNum = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setTrxNum = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -3866,7 +3943,7 @@ proto.protocol.AssetIssueContract.prototype.getPrecision = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setPrecision = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
@@ -3881,7 +3958,7 @@ proto.protocol.AssetIssueContract.prototype.getNum = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setNum = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -3896,7 +3973,7 @@ proto.protocol.AssetIssueContract.prototype.getStartTime = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setStartTime = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -3911,7 +3988,7 @@ proto.protocol.AssetIssueContract.prototype.getEndTime = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setEndTime = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -3926,7 +4003,7 @@ proto.protocol.AssetIssueContract.prototype.getOrder = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setOrder = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -3941,7 +4018,7 @@ proto.protocol.AssetIssueContract.prototype.getVoteScore = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setVoteScore = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  jspb.Message.setField(this, 16, value);
 };
 
 
@@ -3980,7 +4057,7 @@ proto.protocol.AssetIssueContract.prototype.getDescription_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AssetIssueContract.prototype.setDescription = function(value) {
-  jspb.Message.setProto3BytesField(this, 20, value);
+  jspb.Message.setField(this, 20, value);
 };
 
 
@@ -4019,7 +4096,7 @@ proto.protocol.AssetIssueContract.prototype.getUrl_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AssetIssueContract.prototype.setUrl = function(value) {
-  jspb.Message.setProto3BytesField(this, 21, value);
+  jspb.Message.setField(this, 21, value);
 };
 
 
@@ -4034,7 +4111,7 @@ proto.protocol.AssetIssueContract.prototype.getFreeAssetNetLimit = function() {
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setFreeAssetNetLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 22, value);
+  jspb.Message.setField(this, 22, value);
 };
 
 
@@ -4049,7 +4126,7 @@ proto.protocol.AssetIssueContract.prototype.getPublicFreeAssetNetLimit = functio
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setPublicFreeAssetNetLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 23, value);
+  jspb.Message.setField(this, 23, value);
 };
 
 
@@ -4064,7 +4141,7 @@ proto.protocol.AssetIssueContract.prototype.getPublicFreeAssetNetUsage = functio
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setPublicFreeAssetNetUsage = function(value) {
-  jspb.Message.setProto3IntField(this, 24, value);
+  jspb.Message.setField(this, 24, value);
 };
 
 
@@ -4079,7 +4156,7 @@ proto.protocol.AssetIssueContract.prototype.getPublicLatestFreeNetTime = functio
 
 /** @param {number} value */
 proto.protocol.AssetIssueContract.prototype.setPublicLatestFreeNetTime = function(value) {
-  jspb.Message.setProto3IntField(this, 25, value);
+  jspb.Message.setField(this, 25, value);
 };
 
 
@@ -4281,7 +4358,7 @@ proto.protocol.ParticipateAssetIssueContract.prototype.getOwnerAddress_asU8 = fu
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ParticipateAssetIssueContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -4320,7 +4397,7 @@ proto.protocol.ParticipateAssetIssueContract.prototype.getToAddress_asU8 = funct
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ParticipateAssetIssueContract.prototype.setToAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -4359,7 +4436,7 @@ proto.protocol.ParticipateAssetIssueContract.prototype.getAssetName_asU8 = funct
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ParticipateAssetIssueContract.prototype.setAssetName = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -4374,7 +4451,7 @@ proto.protocol.ParticipateAssetIssueContract.prototype.getAmount = function() {
 
 /** @param {number} value */
 proto.protocol.ParticipateAssetIssueContract.prototype.setAmount = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -4588,7 +4665,7 @@ proto.protocol.FreezeBalanceContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.FreezeBalanceContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -4603,7 +4680,7 @@ proto.protocol.FreezeBalanceContract.prototype.getFrozenBalance = function() {
 
 /** @param {number} value */
 proto.protocol.FreezeBalanceContract.prototype.setFrozenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -4618,7 +4695,7 @@ proto.protocol.FreezeBalanceContract.prototype.getFrozenDuration = function() {
 
 /** @param {number} value */
 proto.protocol.FreezeBalanceContract.prototype.setFrozenDuration = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -4633,7 +4710,7 @@ proto.protocol.FreezeBalanceContract.prototype.getResource = function() {
 
 /** @param {!proto.protocol.ResourceCode} value */
 proto.protocol.FreezeBalanceContract.prototype.setResource = function(value) {
-  jspb.Message.setProto3EnumField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -4672,7 +4749,7 @@ proto.protocol.FreezeBalanceContract.prototype.getReceiverAddress_asU8 = functio
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.FreezeBalanceContract.prototype.setReceiverAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -4862,7 +4939,7 @@ proto.protocol.UnfreezeBalanceContract.prototype.getOwnerAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UnfreezeBalanceContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -4877,7 +4954,7 @@ proto.protocol.UnfreezeBalanceContract.prototype.getResource = function() {
 
 /** @param {!proto.protocol.ResourceCode} value */
 proto.protocol.UnfreezeBalanceContract.prototype.setResource = function(value) {
-  jspb.Message.setProto3EnumField(this, 10, value);
+  jspb.Message.setField(this, 10, value);
 };
 
 
@@ -4916,7 +4993,7 @@ proto.protocol.UnfreezeBalanceContract.prototype.getReceiverAddress_asU8 = funct
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UnfreezeBalanceContract.prototype.setReceiverAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 15, value);
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -5082,7 +5159,7 @@ proto.protocol.UnfreezeAssetContract.prototype.getOwnerAddress_asU8 = function()
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UnfreezeAssetContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5248,7 +5325,7 @@ proto.protocol.WithdrawBalanceContract.prototype.getOwnerAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.WithdrawBalanceContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5462,7 +5539,7 @@ proto.protocol.UpdateAssetContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateAssetContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5501,7 +5578,7 @@ proto.protocol.UpdateAssetContract.prototype.getDescription_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateAssetContract.prototype.setDescription = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -5540,7 +5617,7 @@ proto.protocol.UpdateAssetContract.prototype.getUrl_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateAssetContract.prototype.setUrl = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -5555,7 +5632,7 @@ proto.protocol.UpdateAssetContract.prototype.getNewLimit = function() {
 
 /** @param {number} value */
 proto.protocol.UpdateAssetContract.prototype.setNewLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -5570,7 +5647,7 @@ proto.protocol.UpdateAssetContract.prototype.getNewPublicLimit = function() {
 
 /** @param {number} value */
 proto.protocol.UpdateAssetContract.prototype.setNewPublicLimit = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -5747,7 +5824,7 @@ proto.protocol.ProposalCreateContract.prototype.getOwnerAddress_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ProposalCreateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5955,7 +6032,7 @@ proto.protocol.ProposalApproveContract.prototype.getOwnerAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ProposalApproveContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -5970,7 +6047,7 @@ proto.protocol.ProposalApproveContract.prototype.getProposalId = function() {
 
 /** @param {number} value */
 proto.protocol.ProposalApproveContract.prototype.setProposalId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -5987,7 +6064,7 @@ proto.protocol.ProposalApproveContract.prototype.getIsAddApproval = function() {
 
 /** @param {boolean} value */
 proto.protocol.ProposalApproveContract.prototype.setIsAddApproval = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6165,7 +6242,7 @@ proto.protocol.ProposalDeleteContract.prototype.getOwnerAddress_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ProposalDeleteContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6180,7 +6257,7 @@ proto.protocol.ProposalDeleteContract.prototype.getProposalId = function() {
 
 /** @param {number} value */
 proto.protocol.ProposalDeleteContract.prototype.setProposalId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -6234,7 +6311,9 @@ proto.protocol.CreateSmartContract.toObject = function(includeInstance, msg) {
     ownerAddress: msg.getOwnerAddress_asB64(),
     newContract: (f = msg.getNewContract()) && core_Vision_pb.SmartContract.toObject(includeInstance, f),
     callTokenValue: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    tokenId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    tokenId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    rlpData: msg.getRlpData_asB64()
   };
 
   if (includeInstance) {
@@ -6287,6 +6366,14 @@ proto.protocol.CreateSmartContract.deserializeBinaryFromReader = function(msg, r
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTokenId(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setType(value);
+      break;
+    case 6:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setRlpData(value);
       break;
     default:
       reader.skipField();
@@ -6346,6 +6433,20 @@ proto.protocol.CreateSmartContract.serializeBinaryToWriter = function(message, w
       f
     );
   }
+  f = message.getType();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
+      f
+    );
+  }
+  f = message.getRlpData_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      6,
+      f
+    );
+  }
 };
 
 
@@ -6384,7 +6485,7 @@ proto.protocol.CreateSmartContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.CreateSmartContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6429,7 +6530,7 @@ proto.protocol.CreateSmartContract.prototype.getCallTokenValue = function() {
 
 /** @param {number} value */
 proto.protocol.CreateSmartContract.prototype.setCallTokenValue = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6444,7 +6545,61 @@ proto.protocol.CreateSmartContract.prototype.getTokenId = function() {
 
 /** @param {number} value */
 proto.protocol.CreateSmartContract.prototype.setTokenId = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 type = 5;
+ * @return {number}
+ */
+proto.protocol.CreateSmartContract.prototype.getType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.protocol.CreateSmartContract.prototype.setType = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional bytes rlp_data = 6;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protocol.CreateSmartContract.prototype.getRlpData = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * optional bytes rlp_data = 6;
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {string}
+ */
+proto.protocol.CreateSmartContract.prototype.getRlpData_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getRlpData()));
+};
+
+
+/**
+ * optional bytes rlp_data = 6;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {!Uint8Array}
+ */
+proto.protocol.CreateSmartContract.prototype.getRlpData_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getRlpData()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.protocol.CreateSmartContract.prototype.setRlpData = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -6500,7 +6655,9 @@ proto.protocol.TriggerSmartContract.toObject = function(includeInstance, msg) {
     callValue: jspb.Message.getFieldWithDefault(msg, 3, 0),
     data: msg.getData_asB64(),
     callTokenValue: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    tokenId: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    tokenId: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    rlpData: msg.getRlpData_asB64()
   };
 
   if (includeInstance) {
@@ -6560,6 +6717,14 @@ proto.protocol.TriggerSmartContract.deserializeBinaryFromReader = function(msg, 
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTokenId(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setType(value);
+      break;
+    case 8:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setRlpData(value);
       break;
     default:
       reader.skipField();
@@ -6632,6 +6797,20 @@ proto.protocol.TriggerSmartContract.serializeBinaryToWriter = function(message, 
       f
     );
   }
+  f = message.getType();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
+      f
+    );
+  }
+  f = message.getRlpData_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      8,
+      f
+    );
+  }
 };
 
 
@@ -6670,7 +6849,7 @@ proto.protocol.TriggerSmartContract.prototype.getOwnerAddress_asU8 = function() 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TriggerSmartContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6709,7 +6888,7 @@ proto.protocol.TriggerSmartContract.prototype.getContractAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TriggerSmartContract.prototype.setContractAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -6724,7 +6903,7 @@ proto.protocol.TriggerSmartContract.prototype.getCallValue = function() {
 
 /** @param {number} value */
 proto.protocol.TriggerSmartContract.prototype.setCallValue = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6763,7 +6942,7 @@ proto.protocol.TriggerSmartContract.prototype.getData_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.TriggerSmartContract.prototype.setData = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -6778,7 +6957,7 @@ proto.protocol.TriggerSmartContract.prototype.getCallTokenValue = function() {
 
 /** @param {number} value */
 proto.protocol.TriggerSmartContract.prototype.setCallTokenValue = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -6793,7 +6972,61 @@ proto.protocol.TriggerSmartContract.prototype.getTokenId = function() {
 
 /** @param {number} value */
 proto.protocol.TriggerSmartContract.prototype.setTokenId = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int64 type = 7;
+ * @return {number}
+ */
+proto.protocol.TriggerSmartContract.prototype.getType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.protocol.TriggerSmartContract.prototype.setType = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional bytes rlp_data = 8;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protocol.TriggerSmartContract.prototype.getRlpData = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * optional bytes rlp_data = 8;
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {string}
+ */
+proto.protocol.TriggerSmartContract.prototype.getRlpData_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getRlpData()));
+};
+
+
+/**
+ * optional bytes rlp_data = 8;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getRlpData()`
+ * @return {!Uint8Array}
+ */
+proto.protocol.TriggerSmartContract.prototype.getRlpData_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getRlpData()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.protocol.TriggerSmartContract.prototype.setRlpData = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -6971,7 +7204,7 @@ proto.protocol.BuyStorageContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BuyStorageContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -6986,7 +7219,7 @@ proto.protocol.BuyStorageContract.prototype.getQuant = function() {
 
 /** @param {number} value */
 proto.protocol.BuyStorageContract.prototype.setQuant = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7164,7 +7397,7 @@ proto.protocol.BuyStorageBytesContract.prototype.getOwnerAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.BuyStorageBytesContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7179,7 +7412,7 @@ proto.protocol.BuyStorageBytesContract.prototype.getBytes = function() {
 
 /** @param {number} value */
 proto.protocol.BuyStorageBytesContract.prototype.setBytes = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7357,7 +7590,7 @@ proto.protocol.SellStorageContract.prototype.getOwnerAddress_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.SellStorageContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7372,7 +7605,7 @@ proto.protocol.SellStorageContract.prototype.getStorageBytes = function() {
 
 /** @param {number} value */
 proto.protocol.SellStorageContract.prototype.setStorageBytes = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7586,7 +7819,7 @@ proto.protocol.ExchangeCreateContract.prototype.getOwnerAddress_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeCreateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7625,7 +7858,7 @@ proto.protocol.ExchangeCreateContract.prototype.getFirstTokenId_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeCreateContract.prototype.setFirstTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7640,7 +7873,7 @@ proto.protocol.ExchangeCreateContract.prototype.getFirstTokenBalance = function(
 
 /** @param {number} value */
 proto.protocol.ExchangeCreateContract.prototype.setFirstTokenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -7679,7 +7912,7 @@ proto.protocol.ExchangeCreateContract.prototype.getSecondTokenId_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeCreateContract.prototype.setSecondTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -7694,7 +7927,7 @@ proto.protocol.ExchangeCreateContract.prototype.getSecondTokenBalance = function
 
 /** @param {number} value */
 proto.protocol.ExchangeCreateContract.prototype.setSecondTokenBalance = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -7896,7 +8129,7 @@ proto.protocol.ExchangeInjectContract.prototype.getOwnerAddress_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeInjectContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -7911,7 +8144,7 @@ proto.protocol.ExchangeInjectContract.prototype.getExchangeId = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeInjectContract.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -7950,7 +8183,7 @@ proto.protocol.ExchangeInjectContract.prototype.getTokenId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeInjectContract.prototype.setTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -7965,7 +8198,7 @@ proto.protocol.ExchangeInjectContract.prototype.getQuant = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeInjectContract.prototype.setQuant = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -8167,7 +8400,7 @@ proto.protocol.ExchangeWithdrawContract.prototype.getOwnerAddress_asU8 = functio
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeWithdrawContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -8182,7 +8415,7 @@ proto.protocol.ExchangeWithdrawContract.prototype.getExchangeId = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeWithdrawContract.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -8221,7 +8454,7 @@ proto.protocol.ExchangeWithdrawContract.prototype.getTokenId_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeWithdrawContract.prototype.setTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -8236,7 +8469,7 @@ proto.protocol.ExchangeWithdrawContract.prototype.getQuant = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeWithdrawContract.prototype.setQuant = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -8450,7 +8683,7 @@ proto.protocol.ExchangeTransactionContract.prototype.getOwnerAddress_asU8 = func
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeTransactionContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -8465,7 +8698,7 @@ proto.protocol.ExchangeTransactionContract.prototype.getExchangeId = function() 
 
 /** @param {number} value */
 proto.protocol.ExchangeTransactionContract.prototype.setExchangeId = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -8504,7 +8737,7 @@ proto.protocol.ExchangeTransactionContract.prototype.getTokenId_asU8 = function(
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.ExchangeTransactionContract.prototype.setTokenId = function(value) {
-  jspb.Message.setProto3BytesField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -8519,7 +8752,7 @@ proto.protocol.ExchangeTransactionContract.prototype.getQuant = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeTransactionContract.prototype.setQuant = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -8534,7 +8767,7 @@ proto.protocol.ExchangeTransactionContract.prototype.getExpected = function() {
 
 /** @param {number} value */
 proto.protocol.ExchangeTransactionContract.prototype.setExpected = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -8750,7 +8983,7 @@ proto.protocol.AccountPermissionUpdateContract.prototype.getOwnerAddress_asU8 = 
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountPermissionUpdateContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -9019,7 +9252,7 @@ proto.protocol.UpdateBrokerageContract.prototype.getOwnerAddress_asU8 = function
 
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.UpdateBrokerageContract.prototype.setOwnerAddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -9034,7 +9267,7 @@ proto.protocol.UpdateBrokerageContract.prototype.getBrokerage = function() {
 
 /** @param {number} value */
 proto.protocol.UpdateBrokerageContract.prototype.setBrokerage = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
